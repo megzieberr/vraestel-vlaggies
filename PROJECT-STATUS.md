@@ -19,6 +19,13 @@ architecture, the security shape, and the "never hand-edit questions.js" rule.
   box, "Ek merk liewer naamloos". Ticking it disables the name field and the flag
   saves with `learner = null`. They can change their mind either way afterwards and it
   applies retroactively to what they already flagged (`set_learner`).
+- **The teacher dashboard is ENGLISH ONLY** (2026-08-27) — her words: the Afrikaans
+  version was "grossing me out", her thinking is wired in English. The learner page
+  stays fully bilingual. The clipboard export is English too. Question text on a card
+  shows English; a topic card shows the Afrikaans term underneath, and the export
+  still carries EN + AF for every question.
+- **Afrikaans says "naam", never "voornaam"** — her correction; "voornaam" is not
+  a real Afrikaans word. English keeps "First name".
 - **Dashboard unprotected.** She was told the consequence (a learner who finds the URL sees
   who flagged what) and chose it anyway. Do not "fix" this.
 - **Public repo / public paper text is fine** — she was asked specifically, because the app

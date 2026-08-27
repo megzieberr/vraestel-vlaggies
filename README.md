@@ -3,7 +3,7 @@
 A small site where Megan's Grade 12 class flag the questions from **September Vraestel II
 A–D** that they want gone through in the three classes before the exam.
 
-Learner page: `index.html` · Teacher page: `dashboard.html`
+Learner page: `index.html` (Afrikaans + English) · Teacher page: `dashboard.html` (**English only** — her call: "everything is wired in my brain in English").
 
 ## How it works
 

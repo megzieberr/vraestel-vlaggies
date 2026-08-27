@@ -35,28 +35,28 @@ function describe(row) {
     const { q, pt } = partOf(row);
     const lbl = q ? (PAPER_TOPIC_LABEL[q.topic] || {}) : {};
     return {
-      head: 'Vraestel ' + row.paper + ' · Vraag ' + (pt ? pt.disp : row.qnum)
-        + (pt ? '' : ' — die hele vraag'),
-      sub: pt ? pt.af : (q ? q.marks + ' punte' : ''),
-      subEn: pt ? pt.en : '',
-      meta: (lbl.af || '') + (pt ? ' · ' + pt.marks + ' punte' : (q ? ' · ' + q.marks + ' punte' : '')),
+      head: 'Paper ' + row.paper + ' · Question ' + (pt ? pt.disp : row.qnum)
+        + (pt ? '' : ' — the whole question'),
+      sub: pt ? pt.en : '',   // whole-question cards: marks already sit in .meta
+      subAf: pt ? pt.af : '',
+      meta: (lbl.en || '') + (pt ? ' · ' + pt.marks + ' marks' : (q ? ' · ' + q.marks + ' marks' : '')),
       accent: q ? q.topic : 'ana',
       sortKey: row.paper + ' ' + String(row.qnum).padStart(2, '0') + ' ' + (row.part_id || ''),
     };
   }
   const { topic, sub } = subOf(row);
   return {
-    head: (topic ? topic.af : row.topic_id) + ' › ' + (sub ? sub.af : row.sub_id),
-    sub: sub ? sub.en : '',
-    subEn: '',
-    meta: 'Onderwerp',
+    head: (topic ? topic.en : row.topic_id) + ' › ' + (sub ? sub.en : row.sub_id),
+    sub: sub ? sub.af : '',
+    subAf: '',
+    meta: 'Topic',
     accent: topic ? topic.id : 'ana',
     sortKey: row.topic_id + ' ' + row.sub_id,
   };
 }
 
 /* ---------------------------------------------------------- grouping */
-const ANON = 'Naamloos';
+const ANON = 'Anonymous';
 
 /* Counting is by DEVICE, not by name — names are optional, so a flag from someone
    who ticked "naamloos" still counts as one learner. */
@@ -83,11 +83,11 @@ function group(rows) {
     || describe(a.row).sortKey.localeCompare(describe(b.row).sortKey));
 }
 
-/** "Anja, Ben + 3 naamloos" — or just "4 naamloos" when nobody named themselves. */
+/** "Anja, Ben + 3 anonymous" — or just "4 anonymous" when nobody named themselves. */
 function whoLine(g) {
   const bits = g.names.slice();
-  if (g.anon.size) bits.push((bits.length ? '+ ' : '') + g.anon.size + ' naamloos');
-  return bits.join(', ') || 'naamloos';
+  if (g.anon.size) bits.push((bits.length ? '+ ' : '') + g.anon.size + ' anonymous');
+  return bits.join(', ') || 'anonymous';
 }
 
 function pass(r) {
@@ -106,18 +106,19 @@ function buildExport() {
   const d = new Date().toISOString().slice(0, 10);
 
   const out = [];
-  out.push('# Vraestel Vlaggies — ' + d);
-  out.push(people.size + ' leerders (' + (named.length ? named.join(', ') + '; ' : '')
-    + Math.max(0, people.size - named.length) + ' naamloos) · ' + rows.length + ' vlaggies');
-  out.push('Klas: Graad 12, sterk Afrikaanse groep. Bronne: September Vraestel II A–D.');
+  out.push('# Paper Flags — ' + d);
+  out.push(people.size + ' learners (' + (named.length ? named.join(', ') + '; ' : '')
+    + Math.max(0, people.size - named.length) + ' anonymous) · ' + rows.length + ' flags');
+  out.push('Class: Grade 12, the strong Afrikaans group — they need the material in Afrikaans.');
+  out.push('Sources: September Vraestel II A–D (Desktop / Graad 12 Curro / September Vraestel II).');
   out.push('');
 
-  out.push('## VRAE UIT DIE VRAESTELLE (meeste eerste)');
-  if (!paperGroups.length) out.push('(niks gemerk nie)');
+  out.push('## QUESTIONS FROM THE PAPERS (most-wanted first)');
+  if (!paperGroups.length) out.push('(nothing flagged)');
   paperGroups.forEach((g, i) => {
     const { q, pt } = partOf(g.row);
     const lbl = q ? (PAPER_TOPIC_LABEL[q.topic] || {}) : {};
-    const id = pt ? pt.disp : ('Q' + g.row.qnum + ' (hele vraag)');
+    const id = pt ? pt.disp : ('Q' + g.row.qnum + ' (the whole question)');
     out.push((i + 1) + '. Paper ' + g.row.paper + ' · ' + id
       + (pt ? ' — ' + pt.marks + ' marks' : (q ? ' — ' + q.marks + ' marks' : ''))
       + ' — ' + (lbl.en || '') + ' — ' + g.devices.size + ' learner(s): ' + whoLine(g));
@@ -127,8 +128,8 @@ function buildExport() {
   });
   out.push('');
 
-  out.push('## ONDERWERPE (meeste eerste)');
-  if (!topicGroups.length) out.push('(niks gemerk nie)');
+  out.push('## TOPICS (most-wanted first)');
+  if (!topicGroups.length) out.push('(nothing flagged)');
   topicGroups.forEach((g, i) => {
     const { topic, sub } = subOf(g.row);
     out.push((i + 1) + '. ' + (topic ? topic.en : g.row.topic_id) + ' › '
@@ -139,10 +140,10 @@ function buildExport() {
   });
   out.push('');
 
-  out.push('## WAT EK NOU WIL HÊ');
-  out.push('1. Trek al die gemerkte vrae hierbo uit die Sept Paper II bronne in EEN dokument (EN + AF soos die klas dit nodig het).');
-  out.push('2. Skryf splinternuwe oefenvrae oor die onderwerpe hierbo — nie dieselfde vrae nie.');
-  out.push('3. Ons het 3 klasse oor, elk 2 × 45 min.');
+  out.push('## WHAT I WANT NOW');
+  out.push('1. Pull every flagged question above out of the Sept Paper II sources into ONE document, in Afrikaans (the class works in Afrikaans; one learner needs English).');
+  out.push('2. Write brand-new practice questions on the topics above — not the same questions again.');
+  out.push('3. We have 3 classes left, each 2 × 45 min. Order it so the most-flagged things come first.');
   return out.join('\n');
 }
 
@@ -155,15 +156,15 @@ function render() {
   const qFlags = ROWS.filter((r) => r.kind === 'paper');
   const tFlags = ROWS.filter((r) => r.kind === 'topic');
 
-  root.appendChild(el('div', 'eyebrow', 'Graad 12 · September Vraestel II'));
-  root.appendChild(el('h1', null, 'Wat hulle gemerk het'));
+  root.appendChild(el('div', 'eyebrow', 'Grade 12 · September Paper II'));
+  root.appendChild(el('h1', null, 'What they flagged'));
 
   const stats = el('div', 'stat-row');
   const pl = (n, one, many) => (n === 1 ? one : many);
-  [[people.size, pl(people.size, 'leerder', 'leerders')],
-   [ROWS.length, pl(ROWS.length, 'vlaggie', 'vlaggies')],
-   [group(qFlags).length, pl(group(qFlags).length, 'vraag gemerk', 'verskillende vrae')],
-   [group(tFlags).length, pl(group(tFlags).length, 'onderwerp', 'onderwerpe')]]
+  [[people.size, pl(people.size, 'learner', 'learners')],
+   [ROWS.length, pl(ROWS.length, 'flag', 'flags')],
+   [group(qFlags).length, pl(group(qFlags).length, 'question flagged', 'different questions')],
+   [group(tFlags).length, pl(group(tFlags).length, 'topic', 'topics')]]
     .forEach(([n, w]) => {
       const s = el('div', 'stat');
       s.appendChild(el('b', null, String(n)));
@@ -173,12 +174,12 @@ function render() {
   root.appendChild(stats);
 
   if (!ROWS.length) {
-    root.appendChild(el('div', 'empty', 'Nog niks gemerk nie. Sodra ’n leerder iets merk, verskyn dit hier.'));
+    root.appendChild(el('div', 'empty', 'Nothing flagged yet. As soon as a learner flags something it shows up here.'));
     return;
   }
 
   const tools = el('div', 'dash-tools');
-  [['all', 'Alles'], ['2A', 'V 2A'], ['2B', 'V 2B'], ['2C', 'V 2C'], ['2D', 'V 2D'], ['topics', 'Onderwerpe']]
+  [['all', 'All'], ['2A', 'P 2A'], ['2B', 'P 2B'], ['2C', 'P 2C'], ['2D', 'P 2D'], ['topics', 'Topics']]
     .forEach(([id, label]) => {
       const b = el('button', 'btn small' + (filter === id ? ' primary' : ''), label);
       b.onclick = () => { filter = id; render(); };
@@ -216,15 +217,15 @@ function render() {
     card.appendChild(body);
     sec.appendChild(card);
   });
-  if (!groups.length) sec.appendChild(el('div', 'empty', 'Niks in hierdie filter nie.'));
+  if (!groups.length) sec.appendChild(el('div', 'empty', 'Nothing in this filter.'));
   root.appendChild(sec);
 
   /* ---- export ---- */
   const ex = el('div', 'dash-sec');
-  ex.appendChild(el('h2', null, 'Gee dit vir Claude'));
+  ex.appendChild(el('h2', null, 'Give this to Claude'));
   ex.appendChild(el('p', 'small muted',
-    'Alles hieronder — nie net die filter nie. Druk kopieer en plak dit vir Claude.'));
-  const btn = el('button', 'btn primary', '📋 Kopieer vir Claude');
+    'Everything below — not just the current filter. Hit copy and paste it into a session.'));
+  const btn = el('button', 'btn primary', '📋 Copy for Claude');
   btn.style.marginTop = '10px';
   const ta = el('textarea', 'export');
   ta.readOnly = true;
@@ -232,13 +233,13 @@ function render() {
   btn.onclick = async () => {
     try {
       await navigator.clipboard.writeText(ta.value);
-      btn.textContent = '✓ Gekopieer';
+      btn.textContent = '✓ Copied';
     } catch (e) {
       ta.select();
       document.execCommand('copy');
-      btn.textContent = '✓ Gekopieer';
+      btn.textContent = '✓ Copied';
     }
-    setTimeout(() => { btn.textContent = '📋 Kopieer vir Claude'; }, 2000);
+    setTimeout(() => { btn.textContent = '📋 Copy for Claude'; }, 2000);
   };
   ex.appendChild(btn);
   ex.appendChild(ta);
@@ -250,7 +251,7 @@ async function boot() {
     ROWS = (await allFlags()) || [];
   } catch (e) {
     $('#view').innerHTML = '';
-    $('#view').appendChild(el('div', 'err', 'Kon nie die lys laai nie: ' + e.message));
+    $('#view').appendChild(el('div', 'err', "Couldn't load the list: " + e.message));
     return;
   }
   render();

@@ -3,6 +3,19 @@
 **Built and shipped 2026-08-27, one session.** Read `README.md` first — it holds the
 architecture, the security shape, and the "never hand-edit questions.js" rule.
 
+## Where we are
+
+Live and in real use. **Round 1 is in: 11 flags from 2 learners** (Adriaan 9, Alani 2;
+nobody anonymous — the rest of the class flagged nothing). The flagged paper questions are
+gathered into a printable pack for her next class.
+
+The dashboard can now mark a round **handled**, because the class also runs Saturday and
+Sunday and more flags will land on top. Handled flags are kept, never deleted, and the
+learner page is untouched.
+
+Current focus: **the topic practice from round 1 has not been built yet** — that is the
+next real piece of work.
+
 ## Live
 
 - Learner page: **https://megzieberr.github.io/vraestel-vlaggies/**
@@ -35,6 +48,26 @@ architecture, the security shape, and the "never hand-edit questions.js" rule.
   shows the real question wording of all four Paper II papers. She said ship it.
 - **No open/close switch** (dropped from the plan — the only place for the control was the
   unprotected dashboard, where a learner could close the site).
+
+**2026-08-27, evening (round 1 came in):**
+
+- **The flagged-question pack is questions ONLY.** Her brief: *"just gather the paper
+  questions in one doc, naming where the question comes from and a small note (without
+  the learner's name) about what the question was."* So no memo — the colour memos already
+  work all four — and no new practice questions in that document.
+- **No learner name appears in the pack.** The note says what was asked, never who asked.
+- **"Denkbeeldige goed" means circles named in the words but never drawn** — her own
+  words: *"things like 'prove line BE is a tangent to circle ABE' and then there is no
+  circle ABE, you have to draw it."* NOT construction lines in general, which was my first
+  guess and it was wrong. This is the concyclic-points family.
+- **Flags get a `resolved_at` stamp instead of being deleted.** A handled flag keeps its
+  row, its comment and its learner; it just leaves the ranked list and the export.
+- **The learner page was deliberately NOT changed.** "My lys" still shows a learner every
+  flag they made, handled or not — otherwise their flag looks like it vanished and they
+  flag it again.
+- **The dashboard now writes, where before it only read.** The page has no password, so a
+  learner who found the URL could mark the list handled. Nothing is destroyed and there is
+  a one-press undo. She was told plainly and did not ask for a code on it.
 
 ## Verified before shipping (all on the live site unless noted)
 
@@ -83,11 +116,39 @@ undo → back to 11 open. Table checked before and after: **11 rows throughout, 
 
 ## Pending on Megan
 
-1. 💻 **Decide when to press "Mark these 11 as handled."** They are still OPEN — she is
-   teaching them tomorrow, so marking them now would hide the list she is about to use.
-   One tap on the dashboard after the class.
-2. 💻 After Saturday and Sunday, press **Kopieer vir Claude** again — the export now
-   carries only the new, unhandled flags.
+1. 🖨️ 5 min **[blocking]**: print `Gevlagde-Vrae-AFR.pdf` (6 pp) for the next class.
+2. 💻 1 min **[whenever]**: after that class, open the dashboard and press **Mark these 11
+   as handled**. Left open on purpose — it is the list she is about to teach.
+3. 💻 2 min **[whenever]**: after Saturday and Sunday, press **Kopieer vir Claude** again
+   and paste it to me — the export now carries only the new flags.
+
+## Next up
+
+**Practice on the five flagged topics, plus the circles-you-have-to-draw problem.** Nothing
+is built for these yet:
+
+| Topic | Flagged by |
+|---|---|
+| Eweredigheidstelling (ewewydige lyne) | both learners |
+| Weerkaatsing & transformasie | 1 |
+| Gelykvormige driehoeke | 1 |
+| Korrelasiekoëffisiënt | 1 |
+| Spreidiagramme & die regressielyn | 1 |
+| Circles named but never drawn (concyclic) | the free-text note |
+
+Two things to settle before building it:
+
+- **Has this Afrikaans group already done the Eweredigheid worksheet** built the same
+  morning (`Desktop\Graad 12 Curro\Eweredigheid Werkkaart\`, English only, 14 questions, 102 marks)? If yes it needs fresh
+  sketches and values, per her standing ruling. If no, it can be translated and that saves
+  a whole build.
+- **Which learner needs English** — asked, not yet answered. Changes nothing structurally.
+
+Three of the comments are really questions she can answer in class, worth having ready:
+why a "skryf neer" part can be worth 1 mark; whether analytical geometry wants reasons the
+way Euclidean geometry does; and whether the `f'(x)` on a trig graph has to be known
+(reading rise and fall off a sketch: yes, standard — that notation on a Paper II trig
+graph: her own, lifted from Simone's paper when Paper C was built).
 
 ## Housekeeping done
 

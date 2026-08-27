@@ -56,21 +56,38 @@ function describe(row) {
 }
 
 /* ---------------------------------------------------------- grouping */
+const ANON = 'Naamloos';
+
+/* Counting is by DEVICE, not by name — names are optional, so a flag from someone
+   who ticked "naamloos" still counts as one learner. */
 function group(rows) {
   const map = new Map();
   rows.forEach((r) => {
     let g = map.get(r.target_key);
     if (!g) {
-      g = { key: r.target_key, row: r, learners: [], comments: [], latest: r.created_at };
+      g = { key: r.target_key, row: r, names: [], devices: new Set(), anon: new Set(),
+            comments: [], latest: r.created_at };
       map.set(r.target_key, g);
     }
-    if (!g.learners.includes(r.learner)) g.learners.push(r.learner);
-    if (r.comment) g.comments.push({ who: r.learner, text: r.comment });
+    g.devices.add(r.device_id);
+    if (r.learner) {
+      if (!g.names.includes(r.learner)) g.names.push(r.learner);
+    } else {
+      g.anon.add(r.device_id);
+    }
+    if (r.comment) g.comments.push({ who: r.learner || ANON, text: r.comment });
     if (r.created_at > g.latest) g.latest = r.created_at;
   });
   return [...map.values()].sort((a, b) =>
-    b.learners.length - a.learners.length
+    b.devices.size - a.devices.size
     || describe(a.row).sortKey.localeCompare(describe(b.row).sortKey));
+}
+
+/** "Anja, Ben + 3 naamloos" — or just "4 naamloos" when nobody named themselves. */
+function whoLine(g) {
+  const bits = g.names.slice();
+  if (g.anon.size) bits.push((bits.length ? '+ ' : '') + g.anon.size + ' naamloos');
+  return bits.join(', ') || 'naamloos';
 }
 
 function pass(r) {
@@ -82,14 +99,16 @@ function pass(r) {
 /* ---------------------------------------------------------- export */
 function buildExport() {
   const rows = ROWS;
-  const learners = [...new Set(rows.map((r) => r.learner))].sort();
+  const people = new Set(rows.map((r) => r.device_id));
+  const named = [...new Set(rows.map((r) => r.learner).filter(Boolean))].sort();
   const paperGroups = group(rows.filter((r) => r.kind === 'paper'));
   const topicGroups = group(rows.filter((r) => r.kind === 'topic'));
   const d = new Date().toISOString().slice(0, 10);
 
   const out = [];
   out.push('# Vraestel Vlaggies — ' + d);
-  out.push(learners.length + ' leerders · ' + rows.length + ' vlaggies');
+  out.push(people.size + ' leerders (' + (named.length ? named.join(', ') + '; ' : '')
+    + Math.max(0, people.size - named.length) + ' naamloos) · ' + rows.length + ' vlaggies');
   out.push('Klas: Graad 12, sterk Afrikaanse groep. Bronne: September Vraestel II A–D.');
   out.push('');
 
@@ -101,7 +120,7 @@ function buildExport() {
     const id = pt ? pt.disp : ('Q' + g.row.qnum + ' (hele vraag)');
     out.push((i + 1) + '. Paper ' + g.row.paper + ' · ' + id
       + (pt ? ' — ' + pt.marks + ' marks' : (q ? ' — ' + q.marks + ' marks' : ''))
-      + ' — ' + (lbl.en || '') + ' — ' + g.learners.length + ' learner(s): ' + g.learners.join(', '));
+      + ' — ' + (lbl.en || '') + ' — ' + g.devices.size + ' learner(s): ' + whoLine(g));
     if (pt) out.push('   EN: ' + pt.en);
     if (pt) out.push('   AF: ' + pt.af);
     g.comments.forEach((c) => out.push('   - ' + c.who + ': "' + c.text + '"'));
@@ -115,7 +134,7 @@ function buildExport() {
     out.push((i + 1) + '. ' + (topic ? topic.en : g.row.topic_id) + ' › '
       + (sub ? sub.en : g.row.sub_id)
       + '  [AF: ' + (topic ? topic.af : '') + ' › ' + (sub ? sub.af : '') + ']'
-      + ' — ' + g.learners.length + ' learner(s): ' + g.learners.join(', '));
+      + ' — ' + g.devices.size + ' learner(s): ' + whoLine(g));
     g.comments.forEach((c) => out.push('   - ' + c.who + ': "' + c.text + '"'));
   });
   out.push('');
@@ -132,7 +151,7 @@ function render() {
   const root = $('#view');
   root.innerHTML = '';
 
-  const learners = [...new Set(ROWS.map((r) => r.learner))];
+  const people = new Set(ROWS.map((r) => r.device_id));
   const qFlags = ROWS.filter((r) => r.kind === 'paper');
   const tFlags = ROWS.filter((r) => r.kind === 'topic');
 
@@ -140,8 +159,11 @@ function render() {
   root.appendChild(el('h1', null, 'Wat hulle gemerk het'));
 
   const stats = el('div', 'stat-row');
-  [[learners.length, 'leerders'], [ROWS.length, 'vlaggies'],
-   [group(qFlags).length, 'verskillende vrae'], [group(tFlags).length, 'onderwerpe']]
+  const pl = (n, one, many) => (n === 1 ? one : many);
+  [[people.size, pl(people.size, 'leerder', 'leerders')],
+   [ROWS.length, pl(ROWS.length, 'vlaggie', 'vlaggies')],
+   [group(qFlags).length, pl(group(qFlags).length, 'vraag gemerk', 'verskillende vrae')],
+   [group(tFlags).length, pl(group(tFlags).length, 'onderwerp', 'onderwerpe')]]
     .forEach(([n, w]) => {
       const s = el('div', 'stat');
       s.appendChild(el('b', null, String(n)));
@@ -171,7 +193,7 @@ function render() {
   groups.forEach((g, i) => {
     const d = describe(g.row);
     const card = el('div', 'rank');
-    card.appendChild(el('div', 'n', String(g.learners.length)));
+    card.appendChild(el('div', 'n', String(g.devices.size)));
     const body = el('div', 'body');
     const ttl = el('div', 'ttl');
     ttl.appendChild(el('span', 'dot dot-' + d.accent));
@@ -180,7 +202,7 @@ function render() {
     body.appendChild(ttl);
     if (d.sub) body.appendChild(el('div', 'sub', d.sub));
     if (d.meta) body.appendChild(el('div', 'small muted', d.meta));
-    body.appendChild(el('div', 'who', '👤 ' + g.learners.join(', ')));
+    body.appendChild(el('div', 'who', '👤 ' + whoLine(g)));
     if (g.comments.length) {
       const cw = el('div', 'cmts');
       g.comments.forEach((c) => {

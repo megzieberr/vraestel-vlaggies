@@ -8,7 +8,8 @@ Learner page: `index.html` · Teacher page: `dashboard.html`
 ## How it works
 
 1. Learner picks **Afrikaans or English** (one learner in the Afrikaans class works in English).
-2. Types their **first name** once — remembered on their phone, no login.
+2. Types their **first name** once — or ticks **"Ek merk liewer naamloos"** and gives no
+   name at all. Remembered on their phone, no login.
 3. Then either, or both:
    - **📄 A question from a paper** — pick 2A/2B/2C/2D, scroll the questions or search a
      number (`7b1`, `7 (b)(1)` and `Q7B1` all work) or a word (`raaklyn`, `tangent`).
@@ -55,7 +56,14 @@ One table, `public.flags`. Security shape:
   `add_flag(...)` and `remove_flag(device, key)`. `remove_flag` only deletes rows whose
   `device_id` matches the caller's, so nobody can clear someone else's list.
 - `add_flag` title-cases the name (`naam`, `NAAM` → `Naam`) so the dashboard groups a
-  learner correctly however they type it.
+  learner correctly however they type it. **The name is optional** — `learner` is nullable
+  and an anonymous flag stores `null`.
+- `set_learner(device, name)` renames **every** flag that device already made, so choosing
+  "naamloos" later actually removes the name from what they flagged earlier — otherwise the
+  tick would be a lie about rows already sitting in the table.
+- ⚠️ **The dashboard counts by `device_id`, never by name.** Counting distinct names would
+  collapse every anonymous learner into one. "4 learners" is 4 devices; the line under it
+  reads e.g. `Sanri, + 3 naamloos`.
 - One flag per learner per thing (`unique (device_id, target_key)`); re-flagging edits the
   comment rather than making a duplicate.
 

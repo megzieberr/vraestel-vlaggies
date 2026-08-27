@@ -84,6 +84,20 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif; line-he
 .lang-row{display:flex; gap:10px; margin-top:10px;}
 .lang-row .btn{flex:1;}
 
+/* the anonymous tick */
+.tick-row{display:flex; align-items:flex-start; gap:12px; cursor:pointer; margin:10px 0 2px;
+  padding:12px 14px; border:2px dashed var(--ink); border-radius:14px; background:rgba(37,42,74,.03);}
+.tick-row:hover{background:rgba(66,99,235,.07);}
+.tick-row:focus-within{box-shadow:2px 2px 0 var(--accent);}
+.tick{appearance:none; -webkit-appearance:none; flex:none; width:26px; height:26px; margin-top:1px;
+  border:2px solid var(--ink); border-radius:7px; background:#fff; cursor:pointer; position:relative;}
+.tick:checked{background:var(--s5);}
+.tick:checked::after{content:"✓"; position:absolute; inset:0; color:#fff; font-weight:800;
+  font-size:1rem; display:flex; align-items:center; justify-content:center;}
+.tick-body{display:flex; flex-direction:column; gap:2px;}
+.tick-ttl{font-weight:700; font-size:.95rem;}
+.tick-hint{font-size:.82rem; color:var(--ink-soft); line-height:1.35;}
+
 /* ---------- route chooser ---------- */
 .routes{display:flex; flex-direction:column; gap:14px; margin-top:16px;}
 .route{display:flex; align-items:center; gap:14px; text-align:left; cursor:pointer;

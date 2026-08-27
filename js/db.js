@@ -52,6 +52,15 @@ export function addFlag(f) {
   });
 }
 
+/** Renames (or anonymises) every flag this browser has already made. */
+export function setLearner(name) {
+  return call('/rest/v1/rpc/set_learner', {
+    method: 'POST',
+    headers: HEAD,
+    body: JSON.stringify({ p_device: deviceId(), p_name: name || null }),
+  });
+}
+
 export function removeFlag(key) {
   return call('/rest/v1/rpc/remove_flag', {
     method: 'POST',

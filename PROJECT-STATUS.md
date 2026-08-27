@@ -15,6 +15,10 @@ architecture, the security shape, and the "never hand-edit questions.js" rule.
 ## Her decisions this session
 
 - **First names on**, learners type their own — no class list to seed.
+- **2026-08-27, later the same day: the name is now OPTIONAL.** Her request — a tick
+  box, "Ek merk liewer naamloos". Ticking it disables the name field and the flag
+  saves with `learner = null`. They can change their mind either way afterwards and it
+  applies retroactively to what they already flagged (`set_learner`).
 - **Dashboard unprotected.** She was told the consequence (a learner who finds the URL sees
   who flagged what) and chose it anyway. Do not "fix" this.
 - **Public repo / public paper text is fine** — she was asked specifically, because the app

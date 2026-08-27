@@ -1,7 +1,7 @@
 import { PAPERS } from './questions.js';
 import { TOPICS, PAPER_TOPIC_LABEL } from './topics.js';
 import { T } from './i18n.js';
-import { addFlag, removeFlag, myFlags } from './db.js';
+import { addFlag, removeFlag, myFlags, setLearner } from './db.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const el = (t, cls, txt) => {
@@ -15,6 +15,7 @@ const esc = (s) => String(s == null ? '' : s);
 const state = {
   lang: localStorage.getItem('vv-lang') || null,
   learner: localStorage.getItem('vv-name') || null,
+  anon: localStorage.getItem('vv-anon') === '1',   // chose to stay nameless
   view: 'home',
   paper: localStorage.getItem('vv-paper') || '2A',
   q: '',
@@ -24,6 +25,9 @@ const state = {
 };
 
 const t = () => T[state.lang || 'af'];
+
+/* past the front gate once they either gave a name or chose to stay nameless */
+const identified = () => Boolean(state.learner || state.anon);
 
 /* target keys must mirror add_flag() in the database */
 const paperKey = (paper, qnum, part) => 'p:' + paper + ':' + qnum + ':' + (part || 'ALL');
@@ -57,8 +61,9 @@ function chrome() {
 
   const right = el('div', 'tb-right');
   if (state.learner) {
-    const who = el('span', 'pill who', state.learner);
-    right.appendChild(who);
+    right.appendChild(el('span', 'pill who', state.learner));
+  } else if (state.anon) {
+    right.appendChild(el('span', 'pill who', '🕶 ' + t().anonLabel));
   }
   if (state.lang) {
     const lp = el('button', 'pill lang', state.lang === 'af' ? 'AFR' : 'ENG');
@@ -67,11 +72,11 @@ function chrome() {
     right.appendChild(lp);
   }
   bar.appendChild(right);
-  bar.hidden = !(state.lang && state.learner);
+  bar.hidden = !(state.lang && identified());
 
   const bb = $('#bottombar');
   bb.innerHTML = '';
-  if (state.lang && state.learner && state.view !== 'lang' && state.view !== 'name') {
+  if (state.lang && identified() && state.view !== 'lang' && state.view !== 'name') {
     const b1 = el('button', 'btn', t().back);
     b1.onclick = () => go('home');
     const b2 = el('button', 'btn primary');
@@ -115,9 +120,9 @@ function viewLang(root) {
   card.appendChild(el('h2', 'card-title', 'Kies jou taal'));
   const row = el('div', 'lang-row');
   const a = el('button', 'btn big primary', 'Afrikaans');
-  a.onclick = () => { setLang('af'); go(state.learner ? 'home' : 'name'); };
+  a.onclick = () => { setLang('af'); go(identified() ? 'home' : 'name'); };
   const e = el('button', 'btn big', 'English');
-  e.onclick = () => { setLang('en'); go(state.learner ? 'home' : 'name'); };
+  e.onclick = () => { setLang('en'); go(identified() ? 'home' : 'name'); };
   row.appendChild(a); row.appendChild(e);
   card.appendChild(row);
   root.appendChild(card);
@@ -135,16 +140,56 @@ function viewName(root) {
   inp.autocomplete = 'given-name';
   inp.value = state.learner || '';
   card.appendChild(inp);
+
+  /* the anonymous tick */
+  const tickRow = el('label', 'tick-row');
+  const tick = el('input');
+  tick.type = 'checkbox';
+  tick.className = 'tick';
+  tick.checked = state.anon;
+  const tickBody = el('span', 'tick-body');
+  tickBody.appendChild(el('span', 'tick-ttl', '🕶 ' + t().anonTick));
+  tickBody.appendChild(el('span', 'tick-hint', t().anonHint));
+  tickRow.appendChild(tick);
+  tickRow.appendChild(tickBody);
+  card.appendChild(tickRow);
+
   const err = el('div', 'err');
   err.hidden = true;
   card.appendChild(err);
+
+  const syncTick = () => {
+    inp.disabled = tick.checked;
+    inp.style.opacity = tick.checked ? '.45' : '1';
+    if (tick.checked) err.hidden = true;
+  };
+  tick.onchange = syncTick;
+  syncTick();
+
   const go1 = el('button', 'btn big primary', t().start);
-  const submit = () => {
+  const submit = async () => {
     const v = inp.value.trim();
-    if (!v) { err.textContent = t().nameErr; err.hidden = false; return; }
-    state.learner = v.charAt(0).toUpperCase() + v.slice(1).toLowerCase();
-    localStorage.setItem('vv-name', state.learner);
+    if (!tick.checked && !v) { err.textContent = t().nameErr; err.hidden = false; return; }
+    const wasNamed = state.learner;
+    if (tick.checked) {
+      state.anon = true;
+      state.learner = null;
+      localStorage.setItem('vv-anon', '1');
+      localStorage.removeItem('vv-name');
+    } else {
+      state.anon = false;
+      state.learner = v.charAt(0).toUpperCase() + v.slice(1).toLowerCase();
+      localStorage.setItem('vv-name', state.learner);
+      localStorage.removeItem('vv-anon');
+    }
     go('home');
+    // if they already flagged things, changing their mind has to apply to those too
+    if (state.mine.size && wasNamed !== state.learner) {
+      try {
+        await setLearner(state.learner);
+        state.mine.forEach((row) => { row.learner = state.learner; });
+      } catch (e) { toast(t().offline); }
+    }
   };
   go1.onclick = submit;
   inp.onkeydown = (ev) => { if (ev.key === 'Enter') submit(); };
@@ -153,12 +198,12 @@ function viewName(root) {
   cl.onclick = () => go('lang');
   card.appendChild(cl);
   root.appendChild(card);
-  setTimeout(() => inp.focus(), 40);
+  if (!state.anon) setTimeout(() => inp.focus(), 40);
 }
 
 function viewHome(root) {
   const hero = el('div', 'hero');
-  hero.appendChild(el('h1', null, t().hi + ', ' + state.learner + '!'));
+  hero.appendChild(el('h1', null, state.learner ? t().hi + ', ' + state.learner + '!' : t().hiAnon));
   hero.appendChild(el('p', null, t().tagline));
   root.appendChild(hero);
 
@@ -554,7 +599,7 @@ function render() {
   root.innerHTML = '';
   chrome();
   if (!state.lang) return viewLang(root);
-  if (!state.learner) return viewName(root);
+  if (!identified()) return viewName(root);
   if (state.view === 'lang') return viewLang(root);
   if (state.view === 'name') return viewName(root);
   if (state.view === 'paper') return viewPaper(root);
@@ -566,7 +611,7 @@ function render() {
 async function boot() {
   document.documentElement.lang = state.lang || 'af';
   render();
-  if (state.lang && state.learner) {
+  if (state.lang && identified()) {
     try {
       const rows = await myFlags();
       state.mine = new Map((rows || []).map((r) => [r.target_key, r]));

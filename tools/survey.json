@@ -1,0 +1,3483 @@
+{
+ "A": {
+  "fingerprint": {
+   "paper": "P2A",
+   "question_count": 12,
+   "section_a_marks": 76,
+   "topic_sequence": [
+    "ANA",
+    "STAT",
+    "TRIG",
+    "ANA",
+    "STAT",
+    "TRIG",
+    "EUC",
+    "ANA",
+    "TRIG",
+    "EUC",
+    "TRIG",
+    "EUC"
+   ],
+   "mark_sequence": [
+    10,
+    12,
+    12,
+    16,
+    8,
+    12,
+    6,
+    14,
+    12,
+    22,
+    14,
+    12
+   ],
+   "opening_topic": "ANA",
+   "closing_topic": "EUC",
+   "bookwork": {
+    "slot": 7,
+    "theorem": "angle-at-centre"
+   },
+   "three_d": {
+    "slot": 11,
+    "context": "mast"
+   },
+   "graphs_slot": 9,
+   "type_slots": [
+    "ana-warmup",
+    "regression-scatter",
+    "reductions-k",
+    "inclination-area",
+    "ogive",
+    "identity-gensol",
+    "angle-centre-bookwork",
+    "circle-general-form",
+    "graphs-pair",
+    "tangent-chord-prop",
+    "mast-3d",
+    "chords-similarity"
+   ],
+   "_note": "Paper II A is NOT being rebuilt. Written from the question table in README-VRAESTEL-2.md as quoted by FINGERPRINT-SPEC.md, 2026-08-19. Do not edit without re-reading that table."
+  },
+  "langs": {
+   "en": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Calculate the length of $PQ$. Leave your answer in simplest surd form.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Determine the coordinates of $M$, the midpoint of $PR$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Show that $PQ \\parallel SR$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Determine the equation of the line through $R$ that is perpendicular to $PQ$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Represent the data on the grid provided below.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the least squares regression line for this data. Round\nthe values of $a$ and $b$ off to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the correlation coefficient and describe the relationship between the\nnumber of hours worked and the mark obtained.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Use your equation in (b) to predict the mark of a learner who spends $13$ hours\nworking through past papers.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "A learner says that, according to this equation, if she works through past papers\nfor $40$ hours she will score more than $100\\%$. Explain why the equation must not be used\nin this way.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Simplify, \\textbf{without using a calculator}:",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "b",
+       "text": "It is given that $\\cos 40^\\circ = k$. Determine, in terms of $k$ and\n\\textbf{without using a calculator}, the value of:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$\\cos 140^\\circ$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$\\sin 20^\\circ$",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "$\\sin 80^\\circ$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the gradient of $AB$ and the gradient of $AC$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the line $AB$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the size of $\\theta$, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Calculate the size of $B\\hat{A}C$, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "e",
+       "text": "Calculate the area of $\\triangle ABC$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "f",
+       "text": "Hence calculate the perpendicular distance from $C$ to $AB$, correct to TWO decimal\nplaces.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Use the ogive to estimate the median time.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Use the ogive to determine the interquartile range of the data.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Estimate how many of these learners spent more than $150$ minutes on a cellphone.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "d",
+       "text": "Suppose that each of the $80$ learners had in fact spent $15$ minutes MORE on a\ncellphone than the time recorded. Write down what happens to the mean and what happens to\nthe standard deviation, and give a reason for the effect on the standard deviation.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove the identity:\\quad $\\dfrac{1 - \\cos 2x}{\\sin 2x} = \\tan x$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Determine the values of $x$ in the interval $0^\\circ \\leq x \\leq 360^\\circ$ for\nwhich the identity in (a) is undefined.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Determine the general solution of:\\quad $\\cos 2x + 3\\sin x = 2$",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [],
+     "marks": "6"
+    },
+    {
+     "q": "8",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $M$, the centre of the circle, and the length of the\nradius.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Show that $T$ lies on the circle.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Determine the equation of the tangent to the circle at $T$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "A second circle has centre $N(11\\,;4)$ and a radius of $5$ units. Show that the two\ncircles touch each other externally.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Write down the coordinates of the point at which the two circles touch each other.",
+       "subs": [],
+       "marks": "1"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Sketch the graphs of $f$ and $g$ on the same system of axes on the grid provided.\nClearly show all intercepts with the axes and all turning points.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Write down the period of $f$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Write down the amplitude of $g$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "d",
+       "text": "Use your graphs to write down the values of $x$ in the interval\n$0^\\circ \\leq x \\leq 360^\\circ$ for which $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Use your graphs to determine the values of $x$ in the interval\n$0^\\circ \\leq x \\leq 360^\\circ$ for which $f(x) \\geq g(x)$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In the diagram, $A$, $B$, $C$ and $D$ are points on a circle with centre $O$.\n$DB$ is a diameter of the circle. $TAS$ is a tangent to the circle at $A$.\n$S\\hat{A}B = 40^\\circ$ and $D\\hat{B}C = 50^\\circ$.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$A\\hat{C}B$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$A\\hat{D}B$",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "$D\\hat{A}B$",
+         "marks": "2"
+        },
+        {
+         "label": "4",
+         "text": "$A\\hat{B}D$",
+         "marks": "2"
+        },
+        {
+         "label": "5",
+         "text": "$D\\hat{A}C$",
+         "marks": "2"
+        },
+        {
+         "label": "6",
+         "text": "$B\\hat{C}D$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "In $\\triangle ABC$, $D$ is a point on $AB$ and $E$ is a point on $AC$ such that\n$DE \\parallel BC$. $F$ is a point on $BC$ such that $EF \\parallel AB$.\n$AD = 15$ units, $DB = 9$ units and $AE = 20$ units.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Calculate the length of $EC$.",
+         "marks": "3"
+        },
+        {
+         "label": "2",
+         "text": "Write down the ratio $AE : AC$.",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "Prove that $BF : FC = 5 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "4",
+         "text": "Hence write down the ratio $BF : BC$.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "22"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write down the size of $A\\hat{N}B$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "b",
+       "text": "Show that $AN = \\dfrac{48\\sin 41^\\circ}{\\sin 67^\\circ}$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Hence calculate the height $MN$ of the mast, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Calculate the length of $BN$, correct to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Calculate the area of $\\triangle ABN$, correct to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "f",
+       "text": "Calculate the angle of elevation of $M$ from $B$, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove that $\\triangle APB \\; ||| \\; \\triangle DPC$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Hence show that $AP \\cdot PC = BP \\cdot PD$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "It is further given that $AP = 8$ units, $PC = 6$ units and $BP = 4$ units.\nCalculate the length of $PD$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Write down the ratio of the area of $\\triangle APB$ to the area of\n$\\triangle DPC$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    }
+   ],
+   "af": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bereken die lengte van $PQ$. Laat jou antwoord in die eenvoudigste wortelvorm.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die koördinate van $M$, die middelpunt van $PR$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Toon aan dat $PQ \\parallel SR$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Bepaal die vergelyking van die lyn deur $R$ wat loodreg op $PQ$ is.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Stel die data op die rooster hieronder voor.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die kleinste-kwadrate-regressielyn vir hierdie data.\nRond die waardes van $a$ en $b$ af tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die korrelasiekoëffisiënt en beskryf die verband tussen die aantal ure wat\ngewerk is en die punt wat behaal is.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Gebruik jou vergelyking in (b) om die punt te voorspel van 'n leerder wat $13$ ure\naan ou vraestelle bestee.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "'n Leerder sê dat sy volgens hierdie vergelyking meer as $100\\%$ sal behaal as sy\n$40$ ure lank aan ou vraestelle werk. Verduidelik waarom die vergelyking nie op hierdie\nmanier gebruik mag word nie.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Vereenvoudig, \\textbf{sonder om 'n sakrekenaar te gebruik}:",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "b",
+       "text": "Daar word gegee dat $\\cos 40^\\circ = k$. Bepaal, in terme van $k$ en\n\\textbf{sonder om 'n sakrekenaar te gebruik}, die waarde van:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$\\cos 140^\\circ$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$\\sin 20^\\circ$",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "$\\sin 80^\\circ$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die gradiënt van $AB$ en die gradiënt van $AC$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die lyn $AB$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die grootte van $\\theta$, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Bereken die grootte van $B\\hat{A}C$, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "e",
+       "text": "Bereken die oppervlakte van $\\triangle ABC$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "f",
+       "text": "Bereken vervolgens die loodregte afstand van $C$ na $AB$, korrek tot TWEE desimale\nplekke.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Gebruik die ogief om die mediaantyd te skat.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Gebruik die ogief om die interkwartielomvang van die data te bepaal.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Skat hoeveel van hierdie leerders meer as $150$ minute op 'n selfoon bestee het.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "d",
+       "text": "Veronderstel elkeen van die $80$ leerders het in werklikheid $15$ minute MEER op 'n\nselfoon bestee as die tyd wat aangeteken is. Skryf neer wat met die gemiddelde gebeur en\nwat met die standaardafwyking gebeur, en gee 'n rede vir die uitwerking op die\nstandaardafwyking.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys die identiteit:\\quad $\\dfrac{1 - \\cos 2x}{\\sin 2x} = \\tan x$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die waardes van $x$ in die interval $0^\\circ \\leq x \\leq 360^\\circ$ waarvoor\ndie identiteit in (a) ongedefinieerd is.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die algemene oplossing van:\\quad $\\cos 2x + 3\\sin x = 2$",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [],
+     "marks": "6"
+    },
+    {
+     "q": "8",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die koördinate van $M$, die middelpunt van die sirkel, en die lengte van die\nradius.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat $T$ op die sirkel lê.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die vergelyking van die raaklyn aan die sirkel by $T$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "'n Tweede sirkel het middelpunt $N(11\\,;4)$ en 'n radius van $5$ eenhede. Toon aan\ndat die twee sirkels mekaar ekstern raak.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Skryf die koördinate neer van die punt waar die twee sirkels mekaar raak.",
+       "subs": [],
+       "marks": "1"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skets die grafieke van $f$ en $g$ op dieselfde assestelsel op die rooster wat\nverskaf word. Toon alle afsnitte met die asse en alle draaipunte duidelik aan.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Skryf die periode van $f$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Skryf die amplitude van $g$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "d",
+       "text": "Gebruik jou grafieke om die waardes van $x$ in die interval\n$0^\\circ \\leq x \\leq 360^\\circ$ neer te skryf waarvoor $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Gebruik jou grafieke om die waardes van $x$ in die interval\n$0^\\circ \\leq x \\leq 360^\\circ$ te bepaal waarvoor $f(x) \\geq g(x)$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In die diagram is $A$, $B$, $C$ en $D$ punte op 'n sirkel met middelpunt $O$.\n$DB$ is 'n middellyn van die sirkel. $TAS$ is 'n raaklyn aan die sirkel by $A$.\n$S\\hat{A}B = 40^\\circ$ en $D\\hat{B}C = 50^\\circ$.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$A\\hat{C}B$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$A\\hat{D}B$",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "$D\\hat{A}B$",
+         "marks": "2"
+        },
+        {
+         "label": "4",
+         "text": "$A\\hat{B}D$",
+         "marks": "2"
+        },
+        {
+         "label": "5",
+         "text": "$D\\hat{A}C$",
+         "marks": "2"
+        },
+        {
+         "label": "6",
+         "text": "$B\\hat{C}D$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "In $\\triangle ABC$ is $D$ 'n punt op $AB$ en $E$ 'n punt op $AC$ sodat\n$DE \\parallel BC$. $F$ is 'n punt op $BC$ sodat $EF \\parallel AB$.\n$AD = 15$ eenhede, $DB = 9$ eenhede en $AE = 20$ eenhede.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Bereken die lengte van $EC$.",
+         "marks": "3"
+        },
+        {
+         "label": "2",
+         "text": "Skryf die verhouding $AE : AC$ neer.",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "Bewys dat $BF : FC = 5 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "4",
+         "text": "Skryf vervolgens die verhouding $BF : BC$ neer.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "22"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf die grootte van $A\\hat{N}B$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat $AN = \\dfrac{48\\sin 41^\\circ}{\\sin 67^\\circ}$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bereken vervolgens die hoogte $MN$ van die mas, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Bereken die lengte van $BN$, korrek tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Bereken die oppervlakte van $\\triangle ABN$, korrek tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "f",
+       "text": "Bereken die hoogtehoek van $M$ vanaf $B$, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys dat $\\triangle APB \\; ||| \\; \\triangle DPC$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Toon vervolgens aan dat $AP \\cdot PC = BP \\cdot PD$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Daar word verder gegee dat $AP = 8$ eenhede, $PC = 6$ eenhede en $BP = 4$ eenhede.\nBereken die lengte van $PD$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Skryf die verhouding van die oppervlakte van $\\triangle APB$ tot die oppervlakte van\n$\\triangle DPC$ neer.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    }
+   ]
+  }
+ },
+ "B": {
+  "fingerprint": {
+   "paper": "P2B",
+   "question_count": 13,
+   "section_a_marks": 72,
+   "topic_sequence": [
+    "STAT",
+    "TRIG",
+    "ANA",
+    "EUC",
+    "TRIG",
+    "ANA",
+    "TRIG",
+    "TRIG",
+    "STAT",
+    "EUC",
+    "TRIG",
+    "EUC",
+    "ANA"
+   ],
+   "mark_sequence": [
+    8,
+    6,
+    14,
+    6,
+    12,
+    16,
+    10,
+    8,
+    12,
+    16,
+    12,
+    18,
+    12
+   ],
+   "opening_topic": "STAT",
+   "closing_topic": "ANA",
+   "bookwork": {
+    "slot": 12,
+    "theorem": "proportionality"
+   },
+   "three_d": {
+    "slot": 8,
+    "context": "door"
+   },
+   "graphs_slot": 11,
+   "type_slots": [
+    "box-whisker",
+    "t-triangle",
+    "inclination-chain",
+    "clock",
+    "disguise-simplify-solve",
+    "circle-general-form",
+    "reductions-p",
+    "door-3d",
+    "regression-reverse",
+    "monster-diagram",
+    "graphs-pair",
+    "proportionality-bookwork-hard",
+    "stadium-track"
+   ],
+   "_note": "Rebuilt 2026-08-19. The blueprint put the door at slot 11 and the graphs at slot 8; they were swapped because Paper II A's mast is already at slot 11 and rule 4 of FINGERPRINT-SPEC.md forbids that. Marks, topics and the topic SEQUENCE are unchanged by the swap. See swap_8_11_p2b.py. Q5 was re-authored TWICE later the same day. First: its old (a) was verbatim her class's June P2 identity, so it became the compound-product identity. Then her review ruled that version too transparent for the strong group, so the slot is now 'disguise-simplify-solve' -- ((sinx+cosx)^2 - 1)/(1 - cos^2 x) = 2cosx/sinx, hence tan x = -1 on [-180;180]. The mark split inside Q5 went 5+3+4 -> 4+4+4; the question total is still 12. (c) has never been touched. The compound-product version is BANKED in RUN-STATE-P2B.md."
+  },
+  "langs": {
+   "en": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write down the interquartile range of the marks.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Comment on the skewness of the data. Justify your answer with a calculation.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "The teacher decides to add $5$ marks to every learner's mark. Write down what\nhappens to the median and what happens to the standard deviation, and give a reason for the\neffect on the standard deviation.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Explain why $4t + 1$ must be the hypotenuse.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Calculate the value of $t$, and write down the lengths of the three sides.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Calculate the size of $\\theta$ and the size of $\\phi$, each correct to TWO decimal\nplaces.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Hence show that $\\hat{B} = 74{,}74^\\circ$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Determine the equation of $AB$, and write down the coordinates of the point where\n$AB$ cuts the $y$-axis.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Calculate the length of $BC$, correct to TWO decimal places.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Calculate the area of $\\triangle ABC$, correct to TWO decimal places.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write down, with a reason, the size of the angle subtended at $O$ by the chord $CB$\n(that is, $C\\hat{O}B$).",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Hence calculate, with reasons, the size of $x$.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove the identity:\\quad\n$\\dfrac{(\\sin x + \\cos x)^2 - 1}{1 - \\cos^2 x} = \\dfrac{2\\cos x}{\\sin x}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Hence determine the values of $x$ in the interval\n$-180^\\circ \\leq x \\leq 180^\\circ$ for which\\quad\n$\\dfrac{(\\sin x + \\cos x)^2 - 1}{1 - \\cos^2 x} = -2$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Determine the general solution of:\\quad $\\sin(x - 30^\\circ) = \\cos 2x$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $M$, the centre of the circle, and the length of the\nradius.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Show that $O$ lies outside the circle.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Determine the coordinates of the point $P$ on the circle that is closest to $O$, and\nwrite down the shortest distance from $O$ to the circle. Give a reason for your method.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Determine the equation of the tangent to the circle at $T$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Determine the equation of the other tangent to the circle that is parallel to the\ntangent in (d).",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Simplify, \\textbf{without using a calculator}:",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "b",
+       "text": "It is given that $\\sin 23^\\circ = p$. Determine, in terms of $p$ and\n\\textbf{without using a calculator}, the value of:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$\\cos 293^\\circ$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$\\cos 46^\\circ$",
+         "marks": "3"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "8",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Calculate the length of $SD$, correct to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "A thin cable is stretched from the hook $S$ to the top outer corner $Q$ of the door.\nExplain why $S\\hat{D}Q = 90^\\circ$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Hence calculate the angle that the cable $SQ$ makes with the floor, correct to ONE\ndecimal place.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Represent the data on the grid provided below.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the least squares regression line for this data. Round the\nvalues of $a$ and $b$ off to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the correlation coefficient and describe the relationship between the\nPhysical Sciences mark and the Mathematics mark.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Use your equation in (b) to predict the Mathematics mark of a learner who obtained\n$60\\%$ for Physical Sciences.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "e",
+       "text": "Naledi obtained $74\\%$ for Mathematics. Her teacher substitutes $y = 74$ into the\nequation in (b), solves for $x$, and then tells Naledi what she ``should have'' obtained for\nPhysical Sciences. Give TWO different reasons why this is not a valid use of the model.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine, with reasons, the size of:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$A\\hat{O}C$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$A\\hat{B}C$",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "$\\hat{B}_2$",
+         "marks": "2"
+        },
+        {
+         "label": "4",
+         "text": "$A\\hat{D}C$",
+         "marks": "2"
+        },
+        {
+         "label": "5",
+         "text": "$\\hat{A}_3$",
+         "marks": "2"
+        },
+        {
+         "label": "6",
+         "text": "$\\hat{A}_1$",
+         "marks": "2"
+        },
+        {
+         "label": "7",
+         "text": "$A\\hat{E}B$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "Prove that $PA = PC$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Sketch the graphs of $f$ and $g$ on the same system of axes on the grid provided.\nClearly show all intercepts with the axes and all turning points.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Write down the period of $g$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Use your graphs to write down the values of $x$ in the interval\n$0^\\circ \\leq x \\leq 360^\\circ$ for which $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Use your graphs to determine the values of $x$ in the interval\n$0^\\circ \\leq x \\leq 360^\\circ$ for which $f(x) \\geq g(x)$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In $\\triangle ABC$, $D$ is a point on $AB$ and $E$ is a point on $AC$ such that\n$DE \\parallel BC$.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "In the diagram below, $D$ is a point on $AB$ and $E$ is a point on $AC$ of\n$\\triangle ABC$, with $AD = 12$ units, $DB = 8$ units and $AE = 15$ units. $F$ is a point on\n$BC$ and $AF$ cuts $DE$ at $G$.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Show that $AC = 25$ units.",
+         "marks": "4"
+        },
+        {
+         "label": "2",
+         "text": "Hence prove that $DE \\parallel BC$.",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "$F$ is a point on $BC$ such that $BF : FC = 1 : 3$. Prove that $DG : GE = 1 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "4",
+         "text": "If $BC = 30$ units, calculate the length of $GE$.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "18"
+    },
+    {
+     "q": "13",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the equation of the circle of which the semicircular end on $BC$ is a\npart.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Calculate the total length of the inside edge of the track, correct to TWO decimal\nplaces.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the area of the ground enclosed by the track, correct to TWO decimal\nplaces.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "A second lane is marked on the ground $1{,}25$ m outside the inside edge, all the way\naround the track. Show that a runner on this lane runs exactly $2\\pi(1{,}25)$ m further than\na runner on the inside edge, whatever the length of the two straights, and say what this\nmeans for where the runners in the outer lanes must start.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "12"
+    }
+   ],
+   "af": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf die interkwartielomvang van die punte neer.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Lewer kommentaar op die skeefheid van die data. Staaf jou antwoord met 'n berekening.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Die onderwyser besluit om $5$ punte by elke leerder se punt te tel. Skryf neer wat met\ndie mediaan gebeur en wat met die standaardafwyking gebeur, en gee 'n rede vir die uitwerking\nop die standaardafwyking.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Verduidelik waarom $4t + 1$ die skuinssy moet wees.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Bereken die waarde van $t$, en skryf die lengtes van die drie sye neer.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bereken die grootte van $\\theta$ en die grootte van $\\phi$, elk korrek tot TWEE\ndesimale plekke.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Toon vervolgens aan dat $\\hat{B} = 74{,}74^\\circ$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die vergelyking van $AB$, en skryf die koördinate neer van die punt waar $AB$\ndie $y$-as sny.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Bereken die lengte van $BC$, korrek tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Bereken die oppervlakte van $\\triangle ABC$, korrek tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf, met 'n rede, die grootte neer van die hoek wat deur die koord $CB$ by $O$\nonderspan word (dit wil sê $C\\hat{O}B$).",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Bereken vervolgens, met redes, die grootte van $x$.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys die identiteit:\\quad\n$\\dfrac{(\\sin x + \\cos x)^2 - 1}{1 - \\cos^2 x} = \\dfrac{2\\cos x}{\\sin x}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal vervolgens die waardes van $x$ in die interval\n$-180^\\circ \\leq x \\leq 180^\\circ$ waarvoor\\quad\n$\\dfrac{(\\sin x + \\cos x)^2 - 1}{1 - \\cos^2 x} = -2$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die algemene oplossing van:\\quad $\\sin(x - 30^\\circ) = \\cos 2x$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die koördinate van $M$, die middelpunt van die sirkel, en die lengte van die\nradius.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat $O$ buite die sirkel lê.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die koördinate van die punt $P$ op die sirkel wat die naaste aan $O$ is, en\nskryf die kortste afstand van $O$ na die sirkel neer. Gee 'n rede vir jou metode.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Bepaal die vergelyking van die raaklyn aan die sirkel by $T$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Bepaal die vergelyking van die ander raaklyn aan die sirkel wat parallel aan die\nraaklyn in (d) is.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Vereenvoudig, \\textbf{sonder om 'n sakrekenaar te gebruik}:",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "b",
+       "text": "Daar word gegee dat $\\sin 23^\\circ = p$. Bepaal, in terme van $p$ en\n\\textbf{sonder om 'n sakrekenaar te gebruik}, die waarde van:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$\\cos 293^\\circ$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$\\cos 46^\\circ$",
+         "marks": "3"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "8",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bereken die lengte van $SD$, korrek tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "'n Dun kabel word van die haak $S$ na die boonste buitenste hoekpunt $Q$ van die deur\ngespan. Verduidelik waarom $S\\hat{D}Q = 90^\\circ$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bereken vervolgens die hoek wat die kabel $SQ$ met die vloer maak, korrek tot EEN\ndesimale plek.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Stel die data op die rooster hieronder voor.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die kleinste-kwadrate-regressielyn vir hierdie data. Rond\ndie waardes van $a$ en $b$ af tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die korrelasiekoëffisiënt en beskryf die verband tussen die Fisiese\nWetenskappe-punt en die Wiskunde-punt.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Gebruik jou vergelyking in (b) om die Wiskunde-punt te voorspel van 'n leerder wat\n$60\\%$ vir Fisiese Wetenskappe behaal het.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "e",
+       "text": "Naledi het $74\\%$ vir Wiskunde behaal. Haar onderwyser vervang $y = 74$ in die\nvergelyking in (b), los vir $x$ op, en sê dan vir Naledi wat sy ``moes'' behaal het vir\nFisiese Wetenskappe. Gee TWEE verskillende redes waarom dit nie 'n geldige gebruik van die\nmodel is nie.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal, met redes, die grootte van:",
+       "subs": [
+        {
+         "label": "1",
+         "text": "$A\\hat{O}C$",
+         "marks": "2"
+        },
+        {
+         "label": "2",
+         "text": "$A\\hat{B}C$",
+         "marks": "2"
+        },
+        {
+         "label": "3",
+         "text": "$\\hat{B}_2$",
+         "marks": "2"
+        },
+        {
+         "label": "4",
+         "text": "$A\\hat{D}C$",
+         "marks": "2"
+        },
+        {
+         "label": "5",
+         "text": "$\\hat{A}_3$",
+         "marks": "2"
+        },
+        {
+         "label": "6",
+         "text": "$\\hat{A}_1$",
+         "marks": "2"
+        },
+        {
+         "label": "7",
+         "text": "$A\\hat{E}B$",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "Bewys dat $PA = PC$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skets die grafieke van $f$ en $g$ op dieselfde assestelsel op die rooster wat verskaf\nword. Toon alle afsnitte met die asse en alle draaipunte duidelik aan.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Skryf die periode van $g$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Gebruik jou grafieke om die waardes van $x$ in die interval\n$0^\\circ \\leq x \\leq 360^\\circ$ neer te skryf waarvoor $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Gebruik jou grafieke om die waardes van $x$ in die interval\n$0^\\circ \\leq x \\leq 360^\\circ$ te bepaal waarvoor $f(x) \\geq g(x)$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In $\\triangle ABC$ is $D$ 'n punt op $AB$ en $E$ 'n punt op $AC$ sodat\n$DE \\parallel BC$.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "In die diagram hieronder is $D$ 'n punt op $AB$ en $E$ 'n punt op $AC$ van\n$\\triangle ABC$, met $AD = 12$ eenhede, $DB = 8$ eenhede en $AE = 15$ eenhede. $F$ is 'n punt\nop $BC$ en $AF$ sny $DE$ by $G$.",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Toon aan dat $AC = 25$ eenhede.",
+         "marks": "4"
+        },
+        {
+         "label": "2",
+         "text": "Bewys vervolgens dat $DE \\parallel BC$.",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "$F$ is 'n punt op $BC$ sodat $BF : FC = 1 : 3$. Bewys dat $DG : GE = 1 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "4",
+         "text": "Indien $BC = 30$ eenhede, bereken die lengte van $GE$.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "18"
+    },
+    {
+     "q": "13",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die vergelyking van die sirkel waarvan die halfsirkelvormige ent op $BC$ 'n\ndeel is.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bereken die totale lengte van die binnerand van die baan, korrek tot TWEE desimale\nplekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die oppervlakte van die grond wat deur die baan omsluit word, korrek tot TWEE\ndesimale plekke.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "'n Tweede baan word $1{,}25$ m buite die binnerand gemerk, al die pad om die baan.\nToon aan dat 'n atleet op hierdie baan presies $2\\pi(1{,}25)$ m verder hardloop as 'n atleet\nop die binnerand, ongeag hoe lank die twee reguit stukke is, en sê wat dit beteken vir waar\ndie atlete in die buitenste bane moet begin.",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "12"
+    }
+   ]
+  }
+ },
+ "C": {
+  "fingerprint": {
+   "paper": "P2C",
+   "question_count": 14,
+   "section_a_marks": 73,
+   "topic_sequence": [
+    "STAT",
+    "STAT",
+    "ANA",
+    "TRIG",
+    "EUC",
+    "TRIG",
+    "ANA",
+    "TRIG",
+    "EUC",
+    "TRIG",
+    "ANA",
+    "EUC",
+    "ANA",
+    "TRIG"
+   ],
+   "mark_sequence": [
+    11,
+    9,
+    11,
+    11,
+    5,
+    7,
+    14,
+    5,
+    20,
+    13,
+    9,
+    15,
+    6,
+    14
+   ],
+   "opening_topic": "STAT",
+   "closing_topic": "TRIG",
+   "bookwork": {
+    "slot": 9,
+    "theorem": "tangent-chord"
+   },
+   "three_d": {
+    "slot": 14,
+    "context": "circular-pond"
+   },
+   "graphs_slot": 4,
+   "type_slots": [
+    "regression-outlier",
+    "eight-values-unknowns",
+    "ana-triangle-circumcircle",
+    "graphs-pair",
+    "parallel-lines-proportion",
+    "identity-undefined",
+    "circle-line-family-k",
+    "gensol-count",
+    "tangent-chord-bookwork-application",
+    "cyclic-quad-compound-surds",
+    "circle-chord-diameter",
+    "proportionality-monster",
+    "reflection-tangent",
+    "circle-geo-3d"
+   ]
+  },
+  "langs": {
+   "en": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Represent the data on the grid provided below.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the least squares regression line for ALL NINE learners.\nRound the values of $a$ and $b$ off to TWO decimal places.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the correlation coefficient for all nine learners, and write down the\ncoordinates of the ONE point that does not follow the pattern of the rest.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "The learner at that point is now removed from the data. Calculate the new\ncorrelation coefficient and describe fully the effect that this one learner had on the\ncorrelation.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Show that $x = 13$ and $y = 20$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Calculate the standard deviation of the eight values.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Determine how many of the eight values lie within ONE standard deviation of the\nmean.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "9"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Show that $AB = BC = 10$ units.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Determine the gradient of $AB$ and the gradient of $BC$, and hence show that\n$AB \\perp BC$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Write down the size of $B\\hat{A}C$. Give a reason for your answer.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "A circle passes through $A$, $B$ and $C$. Determine the equation of this circle.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Sketch the graphs of $f$ and $g$ on the same system of axes on the grid provided.\nClearly show all intercepts with the axes and all turning points.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Write down the values of $x$ in the interval $-180^\\circ \\leq x \\leq 180^\\circ$\nfor which $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Determine the values of $x$ in the interval $-180^\\circ \\leq x \\leq 180^\\circ$ for\nwhich $f'(x)\\cdot g(x) < 0$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Calculate the length of $DF$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Hence write down the ratio $BF : DF$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "5"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove the identity:\\quad\n$\\dfrac{1 + \\sin 2x}{\\cos 2x} = \\dfrac{\\cos x + \\sin x}{\\cos x - \\sin x}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Determine the values of $x$ in the interval $0^\\circ \\leq x \\leq 360^\\circ$ for\nwhich the identity in (a) is undefined.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "7"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write the equation of the circle in the form $(x - a)^2 + (y - b)^2 = r^2$, and\nwrite down the coordinates of the centre $M$ and the length of the radius in simplest\nsurd form.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Show that the line $y = 2x + 5$ is a tangent to the circle, and determine the\ncoordinates of the point at which it touches the circle.",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "c",
+       "text": "Determine, showing all your working, the values of $k$ for which the line\n$y = 2x + k$ will cut the circle at TWO different points.",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "8",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the general solution of:\\quad $\\cos 2x - 5\\sin x = 3$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Hence write down how many solutions the equation in (a) has in the interval\n$-360^\\circ \\leq x \\leq 360^\\circ$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "5"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove the theorem which states that the angle between a tangent to a circle and a\nchord drawn from the point of contact is equal to the angle in the alternate segment ---\nthat is, prove that $S\\hat{A}B = A\\hat{C}B$.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Give a reason why $O\\hat{T}P = 90^\\circ$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Prove that $\\triangle PTB \\; ||| \\; \\triangle PAT$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Hence prove that $PT^2 = PA \\cdot PB$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "It is further given that $PB = 4$ units and $BA = 12$ units. Calculate the length\nof $PT$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "f",
+       "text": "Write down the ratio\\; area of $\\triangle PTB$ : area of $\\triangle PAT$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "g",
+       "text": "The radius of the circle is $8$ units. Calculate the length of $OP$. Leave your\nanswer in simplest surd form.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "20"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write down, with a reason, the size of $R\\hat{S}P$ in terms of $\\phi$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Hence write down $\\beta$ in terms of $\\phi$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Determine the value of $\\tan\\phi$ \\textbf{without using a calculator}.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Hence show, \\textbf{without using a calculator}, that\n$\\tan\\beta = \\dfrac{3\\sqrt{3} - 4}{4\\sqrt{3} + 3}$.",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "e",
+       "text": "Determine the size of $\\beta$, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "13"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $M$ and the length of the radius.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Show that $A(2\\,;7)$ lies on the circle.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Show that the equation of the diameter that bisects the chord $AB$ is\n$y = -x + 2$. \\textbf{Give reasons where possible.}",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "9"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In the diagram, $S$ is a point on $PQ$ and $T$ is a point on $PR$ of\n$\\triangle PQR$. $V$ is a point on $QR$. It is given that",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Prove that $ST \\parallel QR$ for EVERY value of $x > 0$.",
+         "marks": "4"
+        },
+        {
+         "label": "2",
+         "text": "It is further given that $TV \\parallel PQ$. Show that\\; area of $\\triangle TVR$ :\narea of $\\triangle PQR = 16 : 49$.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "In the diagram, $ABCD$ is a trapezium with $AB \\parallel DC$. The diagonals $AC$\nand $BD$ meet at $M$. It is given that",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Prove that $\\triangle ABM \\; ||| \\; \\triangle CDM$.",
+         "marks": "3"
+        },
+        {
+         "label": "2",
+         "text": "Hence show that $AM : MC = 2 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "The area of $\\triangle ABM$ is $8$ cm$^2$. Determine the area of\n$\\triangle BMC$.",
+         "marks": "3"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "15"
+    },
+    {
+     "q": "13",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $P'$, the reflection of $P(4\\,;-1)$ about the line\n$y = -x + 2$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the tangent to the circle at $A$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "14",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Write down, with a reason, the size of $A\\hat{C}B$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Show that $AC = 2p\\cos\\theta$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Hence show that the height of the tree is $CT = 2p\\cos\\theta\\tan\\alpha$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Show that the area of $\\triangle ABC = p^2\\sin 2\\theta$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "It is now given that $p = 20$ m, $\\theta = 37^\\circ$ and $\\alpha = 26^\\circ$.\nCalculate the height of the tree, correct to ONE decimal place, and hence the angle of\nelevation of $T$ from $B$, correct to ONE decimal place.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "14"
+    }
+   ],
+   "af": [
+    {
+     "q": "1",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Stel die data op die rooster hieronder voor.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die kleinstekwadrate-regressielyn vir AL NEGE leerders.\nRond die waardes van $a$ en $b$ af tot TWEE desimale plekke.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die korrelasiekoëffisiënt vir al nege leerders, en skryf die koördinate\nneer van die EEN punt wat nie die patroon van die res volg nie.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Die leerder by daardie punt word nou uit die data verwyder. Bereken die nuwe\nkorrelasiekoëffisiënt en beskryf volledig watter uitwerking hierdie een leerder op die\nkorrelasie gehad het.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "2",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Toon aan dat $x = 13$ en $y = 20$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bereken die standaardafwyking van die agt waardes.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal hoeveel van die agt waardes binne EEN standaardafwyking van die gemiddeld\nlê.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "9"
+    },
+    {
+     "q": "3",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Toon aan dat $AB = BC = 10$ eenhede.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die gradiënt van $AB$ en die gradiënt van $BC$, en toon vervolgens aan dat\n$AB \\perp BC$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Skryf die grootte van $B\\hat{A}C$ neer. Gee 'n rede vir jou antwoord.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "'n Sirkel gaan deur $A$, $B$ en $C$. Bepaal die vergelyking van hierdie sirkel.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "4",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skets die grafieke van $f$ en $g$ op dieselfde stel asse op die rooster wat\nvoorsien word. Toon alle afsnitte met die asse en alle draaipunte duidelik aan.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Skryf die waardes van $x$ in die interval $-180^\\circ \\leq x \\leq 180^\\circ$ neer\nwaarvoor $f(x) = g(x)$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die waardes van $x$ in die interval $-180^\\circ \\leq x \\leq 180^\\circ$\nwaarvoor $f'(x)\\cdot g(x) < 0$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "5",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bereken die lengte van $DF$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Skryf vervolgens die verhouding $BF : DF$ neer.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "5"
+    },
+    {
+     "q": "6",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys die identiteit:\\quad\n$\\dfrac{1 + \\sin 2x}{\\cos 2x} = \\dfrac{\\cos x + \\sin x}{\\cos x - \\sin x}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die waardes van $x$ in die interval $0^\\circ \\leq x \\leq 360^\\circ$\nwaarvoor die identiteit in (a) ongedefinieer is.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "7"
+    },
+    {
+     "q": "7",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf die vergelyking van die sirkel in die vorm $(x - a)^2 + (y - b)^2 = r^2$, en\nskryf die koördinate van die middelpunt $M$ en die lengte van die radius in die\neenvoudigste wortelvorm neer.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat die lyn $y = 2x + 5$ 'n raaklyn aan die sirkel is, en bepaal die\nkoördinate van die punt waar dit die sirkel raak.",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal, met alle bewerkings, die waardes van $k$ waarvoor die lyn $y = 2x + k$ die\nsirkel by TWEE verskillende punte sal sny.",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "8",
+     "section": "A",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die algemene oplossing van:\\quad $\\cos 2x - 5\\sin x = 3$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Skryf vervolgens neer hoeveel oplossings die vergelyking in (a) in die interval\n$-360^\\circ \\leq x \\leq 360^\\circ$ het.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "5"
+    },
+    {
+     "q": "9",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys die stelling wat sê dat die hoek tussen 'n raaklyn aan 'n sirkel en 'n koord\nwat vanaf die raakpunt getrek word, gelyk is aan die hoek in die alternerende segment ---\ndit wil sê, bewys dat $S\\hat{A}B = A\\hat{C}B$.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Gee 'n rede waarom $O\\hat{T}P = 90^\\circ$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Bewys dat $\\triangle PTB \\; ||| \\; \\triangle PAT$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Bewys vervolgens dat $PT^2 = PA \\cdot PB$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Daar word verder gegee dat $PB = 4$ eenhede en $BA = 12$ eenhede. Bereken die\nlengte van $PT$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "f",
+       "text": "Skryf die verhouding\\; oppervlakte van $\\triangle PTB$ : oppervlakte van\n$\\triangle PAT$ neer.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "g",
+       "text": "Die radius van die sirkel is $8$ eenhede. Bereken die lengte van $OP$. Laat jou\nantwoord in die eenvoudigste wortelvorm.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "20"
+    },
+    {
+     "q": "10",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf, met 'n rede, die grootte van $R\\hat{S}P$ in terme van $\\phi$ neer.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Skryf vervolgens $\\beta$ in terme van $\\phi$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die waarde van $\\tan\\phi$ \\textbf{sonder om 'n sakrekenaar te gebruik}.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Toon vervolgens, \\textbf{sonder om 'n sakrekenaar te gebruik}, aan dat\n$\\tan\\beta = \\dfrac{3\\sqrt{3} - 4}{4\\sqrt{3} + 3}$.",
+       "subs": [],
+       "marks": "5"
+      },
+      {
+       "label": "e",
+       "text": "Bepaal die grootte van $\\beta$, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "13"
+    },
+    {
+     "q": "11",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die koördinate van $M$ en die lengte van die radius.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat $A(2\\,;7)$ op die sirkel lê.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Toon aan dat die vergelyking van die middellyn wat die koord $AB$ halveer,\n$y = -x + 2$ is. \\textbf{Gee redes waar moontlik.}",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "9"
+    },
+    {
+     "q": "12",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "In die diagram is $S$ 'n punt op $PQ$ en $T$ 'n punt op $PR$ van $\\triangle PQR$.\n$V$ is 'n punt op $QR$. Daar word gegee dat",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Bewys dat $ST \\parallel QR$ vir ELKE waarde van $x > 0$.",
+         "marks": "4"
+        },
+        {
+         "label": "2",
+         "text": "Daar word verder gegee dat $TV \\parallel PQ$. Toon aan dat\\; oppervlakte van\n$\\triangle TVR$ : oppervlakte van $\\triangle PQR = 16 : 49$.",
+         "marks": "2"
+        }
+       ],
+       "marks": null
+      },
+      {
+       "label": "b",
+       "text": "In die diagram is $ABCD$ 'n trapesium met $AB \\parallel DC$. Die diagonale $AC$ en\n$BD$ sny mekaar by $M$. Daar word gegee dat",
+       "subs": [
+        {
+         "label": "1",
+         "text": "Bewys dat $\\triangle ABM \\; ||| \\; \\triangle CDM$.",
+         "marks": "3"
+        },
+        {
+         "label": "2",
+         "text": "Toon vervolgens aan dat $AM : MC = 2 : 3$.",
+         "marks": "3"
+        },
+        {
+         "label": "3",
+         "text": "Die oppervlakte van $\\triangle ABM$ is $8$ cm$^2$. Bepaal die oppervlakte van\n$\\triangle BMC$.",
+         "marks": "3"
+        }
+       ],
+       "marks": null
+      }
+     ],
+     "marks": "15"
+    },
+    {
+     "q": "13",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die koördinate van $P'$, die weerkaatsing van $P(4\\,;-1)$ om die lyn\n$y = -x + 2$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die raaklyn aan die sirkel by $A$.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "6"
+    },
+    {
+     "q": "14",
+     "section": "B",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skryf, met 'n rede, die grootte van $A\\hat{C}B$ neer.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Toon aan dat $AC = 2p\\cos\\theta$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Toon vervolgens aan dat die hoogte van die boom $CT = 2p\\cos\\theta\\tan\\alpha$ is.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Toon aan dat die oppervlakte van $\\triangle ABC = p^2\\sin 2\\theta$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Daar word nou gegee dat $p = 20$ m, $\\theta = 37^\\circ$ en $\\alpha = 26^\\circ$.\nBereken die hoogte van die boom, korrek tot EEN desimale plek, en vervolgens die\nhoogtehoek van $T$ vanaf $B$, korrek tot EEN desimale plek.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "14"
+    }
+   ]
+  }
+ },
+ "D": {
+  "fingerprint": {
+   "paper": "P2D",
+   "question_count": 15,
+   "section_a_marks": 74,
+   "topic_sequence": [
+    "EUC",
+    "TRIG",
+    "ANA",
+    "STAT",
+    "EUC",
+    "TRIG",
+    "EUC",
+    "TRIG",
+    "STAT",
+    "ANA",
+    "EUC",
+    "TRIG",
+    "TRIG",
+    "ANA",
+    "EUC"
+   ],
+   "mark_sequence": [
+    6,
+    7,
+    14,
+    11,
+    5,
+    12,
+    7,
+    12,
+    8,
+    16,
+    10,
+    7,
+    12,
+    10,
+    13
+   ],
+   "opening_topic": "EUC",
+   "closing_topic": "EUC",
+   "bookwork": {
+    "slot": null,
+    "theorem": null
+   },
+   "three_d": {
+    "slot": 13,
+    "context": "folded-sheet"
+   },
+   "graphs_slot": 6,
+   "type_slots": [
+    "circle-square-tangent-puzzle",
+    "reduction-double-angle-p",
+    "two-circles-common-chord",
+    "regression-from-results",
+    "three-tangent-circles",
+    "graphs-pair",
+    "tangent-circles-shaded-area",
+    "compound-angle-sum-difference",
+    "sd-missing-frequency",
+    "perpendicular-foot-reflection",
+    "proportion-produced-side",
+    "sequence-trig-gensol",
+    "folded-sheet-3d",
+    "parametric-quad-proof",
+    "tangent-similarity-chain"
+   ],
+   "_note": "Built 2026-08-25. bookwork is NULL on purpose: her ruling that day was 'remove the proof, this is the nightmare paper, not sags aligned', so Paper D carries no bookwork proof at all -- unlike A, B, C and unlike every real IEB Paper II. Do not 'restore' it. Q5 replaced that slot with the three-tangent-circles puzzle, her own pick. Six of the fifteen questions are hers: Q1, Q5 and Q7 are Cuemath puzzles reworded into IEB voice, and Q11, Q12 and Q15 are verbatim (Q11 and Q15 from DBE Nov 2025 P2 Q11, in both languages)."
+  },
+  "langs": {
+   "en": [
+    {
+     "q": "1",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "6"
+    },
+    {
+     "q": "2",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$\\sin 226^\\circ$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "$\\cos 88^\\circ$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "$\\sin 22^\\circ \\cdot \\cos 22^\\circ$",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "7"
+    },
+    {
+     "q": "3",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $M$ and the radius of the first circle.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "It is given that $k = 24$. Show that the equation of the common chord of the two\ncircles is $3x + 4y = 9$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Hence calculate the length of the common chord.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Determine the value(s) of $k$ for which the two circles touch each other.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "4",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Calculate $\\bar{y}$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "One of the learners prepared for $12$ hours. Predict the mark of this learner.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "A learner claims that if she had prepared for $24$ hours, the equation shows that\nshe would have obtained $122{,}2\\%$. Explain TWO separate errors in her reasoning.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "The teacher then discovers that every mark was recorded out of $50$ instead of out\nof $100$, so every $y$-value must be doubled. Write down the equation of the new least\nsquares regression line, and the new value of $r$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "5",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "5"
+    },
+    {
+     "q": "6",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Sketch the graphs of $f$ and $g$ on the same system of axes on the grid provided.\nClearly show all intercepts with the axes and all turning points.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Write down the period of $g$.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Determine the values of $x$ in the interval $[-180^\\circ\\,;180^\\circ]$ for which\n$f(x)\\cdot g(x) \\le 0$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "The graph of $f$ is translated to give the graph of $h(x) = 2\\cos(x + 30^\\circ)$.\nDescribe this translation fully.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "7",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "7"
+    },
+    {
+     "q": "8",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove that \\;$\\cos(A - B) - \\cos(A + B) = 2\\sin A \\sin B$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Hence determine the value of \\;$\\cos 15^\\circ - \\cos 75^\\circ$\\; \\textbf{WITHOUT}\nusing a calculator. Leave your answer in simplest surd form.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Show that \\;$\\cos(A - B) + \\cos(A + B) = 2\\cos A \\cos B$,\\; and hence show,\n\\textbf{WITHOUT} using a calculator, that\n\\;$\\dfrac{\\cos 15^\\circ - \\cos 75^\\circ}{\\cos 15^\\circ + \\cos 75^\\circ} = \\tan 30^\\circ$.",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "9",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Show that $k = 7$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Calculate the standard deviation of the marks.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Determine how many of the learners obtained a mark that lies within ONE standard\ndeviation of the mean.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "10",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Determine the coordinates of $M$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Determine the equation of the line through $M$ that is perpendicular to $\\ell$.\nWrite your answer in the form $ax + by = c$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Determine the coordinates of $N$, the point of intersection of $\\ell$ and the line\ndetermined in (b).",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Hence calculate the shortest distance from $M$ to $\\ell$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Determine the coordinates of $M'$, the reflection of $M$ in the line $\\ell$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "11",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$\\dfrac{FD}{CF}$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "$\\dfrac{BA}{EA}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "$\\dfrac{\\text{Area of } \\triangle GCF}{\\text{Area of } GFDA}$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "12",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [],
+     "marks": "7"
+    },
+    {
+     "q": "13",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Show that $QM = 7{,}2$ cm.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Explain why $TN = QM$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Calculate the height of $T$ above the table.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Calculate the length of $MN$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Hence calculate the length of $TQ$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "14",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Prove that $ABCD$ is a parallelogram.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Determine, in terms of $p$, $q$ and $r$, the condition for which $ABCD$ is a\nrhombus.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "If $ABCD$ is a rhombus, prove that its diagonals are perpendicular to each other.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "15",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$PR = \\dfrac{PW \\cdot QR}{QE}$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "If $\\triangle PQZ \\;|||\\; \\triangle RQP$, then $PQ^2 = RQ \\cdot QZ$",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "$\\triangle QSZ \\;|||\\; \\triangle QRS$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "$PQ = QS$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "$PW = \\dfrac{QE \\cdot PZ}{\\sqrt{QR \\cdot QZ}}$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "13"
+    }
+   ],
+   "af": [
+    {
+     "q": "1",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "6"
+    },
+    {
+     "q": "2",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$\\sin 226^\\circ$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "$\\cos 88^\\circ$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "$\\sin 22^\\circ \\cdot \\cos 22^\\circ$",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "7"
+    },
+    {
+     "q": "3",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die ko\\\"ordinate van $M$ en die radius van die eerste sirkel.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Dit is gegee dat $k = 24$. Toon aan dat die vergelyking van die gemeenskaplike\nkoord van die twee sirkels $3x + 4y = 9$ is.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bereken gevolglik die lengte van die gemeenskaplike koord.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Bepaal die waarde(s) van $k$ waarvoor die twee sirkels mekaar raak.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "14"
+    },
+    {
+     "q": "4",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bereken $\\bar{y}$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Een van die leerders het vir $12$ uur voorberei. Voorspel hierdie leerder se punt.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "'n Leerder beweer dat as sy vir $24$ uur voorberei het, die vergelyking wys dat sy\n$122{,}2\\%$ sou behaal het. Verduidelik TWEE afsonderlike foute in haar redenasie.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Die onderwyseres ontdek toe dat elke punt uit $50$ in plaas van uit $100$ aangeteken\nis, sodat elke $y$-waarde verdubbel moet word. Skryf die vergelyking van die nuwe\nkleinste-kwadrate-regressielyn neer, asook die nuwe waarde van $r$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "11"
+    },
+    {
+     "q": "5",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "5"
+    },
+    {
+     "q": "6",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Skets die grafieke van $f$ en $g$ op dieselfde assestelsel op die rooster wat\nvoorsien word. Toon duidelik alle afsnitte met die asse en alle draaipunte aan.",
+       "subs": [],
+       "marks": "6"
+      },
+      {
+       "label": "b",
+       "text": "Skryf die periode van $g$ neer.",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die waardes van $x$ in die interval $[-180^\\circ\\,;180^\\circ]$ waarvoor\n$f(x)\\cdot g(x) \\le 0$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "Die grafiek van $f$ word getransleer om die grafiek van $h(x) = 2\\cos(x + 30^\\circ)$\nte gee. Beskryf hierdie translasie volledig.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "7",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [],
+     "marks": "7"
+    },
+    {
+     "q": "8",
+     "section": "A \\quad$\\bullet$\\quad 74 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys dat \\;$\\cos(A - B) - \\cos(A + B) = 2\\sin A \\sin B$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal gevolglik die waarde van \\;$\\cos 15^\\circ - \\cos 75^\\circ$\\; \\textbf{SONDER}\nom 'n sakrekenaar te gebruik. Laat jou antwoord in die eenvoudigste wortelvorm.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Toon aan dat \\;$\\cos(A - B) + \\cos(A + B) = 2\\cos A \\cos B$,\\; en toon gevolglik,\n\\textbf{SONDER} om 'n sakrekenaar te gebruik, aan dat\n\\;$\\dfrac{\\cos 15^\\circ - \\cos 75^\\circ}{\\cos 15^\\circ + \\cos 75^\\circ} = \\tan 30^\\circ$.",
+       "subs": [],
+       "marks": "5"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "9",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Toon aan dat $k = 7$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Bereken die standaardafwyking van die punte.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal hoeveel van die leerders 'n punt behaal het wat binne EEN standaardafwyking\nvan die gemiddelde l\\^e.",
+       "subs": [],
+       "marks": "2"
+      }
+     ],
+     "marks": "8"
+    },
+    {
+     "q": "10",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bepaal die ko\\\"ordinate van $M$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal die vergelyking van die lyn deur $M$ wat loodreg op $\\ell$ is. Skryf jou\nantwoord in die vorm $ax + by = c$.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "Bepaal die ko\\\"ordinate van $N$, die snypunt van $\\ell$ en die lyn wat in (b) bepaal\nis.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "d",
+       "text": "Bereken gevolglik die kortste afstand van $M$ na $\\ell$.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "Bepaal die ko\\\"ordinate van $M'$, die spie\\\"elbeeld van $M$ in die lyn $\\ell$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "16"
+    },
+    {
+     "q": "11",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$\\dfrac{FD}{CF}$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "$\\dfrac{BA}{EA}$",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "c",
+       "text": "$\\dfrac{\\text{Oppervlakte van } \\triangle GCF}{\\text{Oppervlakte van } GFDA}$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "12",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [],
+     "marks": "7"
+    },
+    {
+     "q": "13",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Toon aan dat $QM = 7{,}2$ cm.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "b",
+       "text": "Verduidelik waarom $TN = QM$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "c",
+       "text": "Bereken die hoogte van $T$ bo die tafel.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "d",
+       "text": "Bereken die lengte van $MN$.",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "e",
+       "text": "Bereken gevolglik die lengte van $TQ$.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "12"
+    },
+    {
+     "q": "14",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "Bewys dat $ABCD$ 'n parallelogram is.",
+       "subs": [],
+       "marks": "4"
+      },
+      {
+       "label": "b",
+       "text": "Bepaal, in terme van $p$, $q$ en $r$, die voorwaarde waarvoor $ABCD$ 'n ruit is.",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "c",
+       "text": "As $ABCD$ 'n ruit is, bewys dat sy diagonale loodreg op mekaar is.",
+       "subs": [],
+       "marks": "3"
+      }
+     ],
+     "marks": "10"
+    },
+    {
+     "q": "15",
+     "section": "B \\quad$\\bullet$\\quad 76 \\MARKSWORD",
+     "parts": [
+      {
+       "label": "a",
+       "text": "$PR = \\dfrac{PW \\cdot QR}{QE}$",
+       "subs": [],
+       "marks": "2"
+      },
+      {
+       "label": "b",
+       "text": "Indien $\\triangle PQZ \\;|||\\; \\triangle RQP$, dan is $PQ^2 = RQ \\cdot QZ$",
+       "subs": [],
+       "marks": "1"
+      },
+      {
+       "label": "c",
+       "text": "$\\triangle QSZ \\;|||\\; \\triangle QRS$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "d",
+       "text": "$PQ = QS$",
+       "subs": [],
+       "marks": "3"
+      },
+      {
+       "label": "e",
+       "text": "$PW = \\dfrac{QE \\cdot PZ}{\\sqrt{QR \\cdot QZ}}$",
+       "subs": [],
+       "marks": "4"
+      }
+     ],
+     "marks": "13"
+    }
+   ]
+  }
+ }
+}

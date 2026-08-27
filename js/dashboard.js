@@ -1,6 +1,6 @@
 import { PAPERS } from './questions.js';
 import { TOPICS, PAPER_TOPIC_LABEL } from './topics.js';
-import { allFlags } from './db.js';
+import { allFlags, resolveFlags, unresolveFlags } from './db.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const el = (t, cls, txt) => {
@@ -10,8 +10,11 @@ const el = (t, cls, txt) => {
   return n;
 };
 
-let ROWS = [];
+let ROWS = [];        // OPEN flags -- what the dashboard ranks and exports
+let DONE = [];        // already handled in a class; kept forever, never deleted
 let filter = 'all';
+let showDone = false;
+let lastBatch = null; // stamp of a batch marked handled in THIS page view, for undo
 
 /* ---------------------------------------------------------- lookups */
 function partOf(row) {
@@ -198,7 +201,10 @@ function render() {
   root.appendChild(stats);
 
   if (!ROWS.length) {
-    root.appendChild(el('div', 'empty', 'Nothing flagged yet. As soon as a learner flags something it shows up here.'));
+    root.appendChild(el('div', 'empty', DONE.length
+      ? 'Nothing open. Everything flagged so far has been marked handled.'
+      : 'Nothing flagged yet. As soon as a learner flags something it shows up here.'));
+    renderDone(root);
     return;
   }
 
@@ -263,6 +269,8 @@ function render() {
     root.appendChild(ns);
   }
 
+  renderResolveBar(root);
+
   /* ---- export ---- */
   const ex = el('div', 'dash-sec');
   ex.appendChild(el('h2', null, 'Give this to Claude'));
@@ -287,11 +295,107 @@ function render() {
   ex.appendChild(btn);
   ex.appendChild(ta);
   root.appendChild(ex);
+
+  renderDone(root);
+}
+
+/* ------------------------------------------------- handled / not handled */
+
+/* Marks every open flag. Nothing is deleted -- a handled flag keeps its row,
+   its comment and its place in "Already handled", and the learner's own list
+   is untouched, so their flag never appears to vanish. */
+function renderResolveBar(root) {
+  const sec = el('div', 'dash-sec');
+  sec.appendChild(el('h2', null, 'Done with these?'));
+  sec.appendChild(el('p', 'small muted',
+    'Marks all ' + ROWS.length + ' open flag' + (ROWS.length === 1 ? '' : 's')
+    + ' as handled, so the next class starts on a clean list. Nothing is deleted, '
+    + 'what the learners see does not change, and you can undo it right after.'));
+
+  const b = el('button', 'btn', 'Mark these ' + ROWS.length + ' as handled');
+  b.style.marginTop = '10px';
+  b.onclick = async () => {
+    if (!confirm('Mark all ' + ROWS.length + ' flags as handled? Nothing is deleted -- they move to "Already handled", and you can undo it.')) return;
+    b.disabled = true;               // disable BEFORE the await, not after
+    try {
+      const res = await resolveFlags();
+      lastBatch = res.stamp;
+      await boot();
+    } catch (e) {
+      b.disabled = false;
+      sec.appendChild(el('div', 'err', "Couldn't mark them: " + e.message));
+    }
+  };
+  sec.appendChild(b);
+  root.appendChild(sec);
+}
+
+/* Every flag in one batch carries the same stamp, which is what makes the undo
+   exact: it clears only that batch and leaves earlier ones handled. */
+function renderDone(root) {
+  if (!DONE.length) return;
+
+  const batches = new Map();
+  DONE.forEach((r) => {
+    if (!batches.has(r.resolved_at)) batches.set(r.resolved_at, []);
+    batches.get(r.resolved_at).push(r);
+  });
+  const keys = [...batches.keys()].sort().reverse();
+
+  const sec = el('div', 'dash-sec');
+  sec.appendChild(el('h2', null, 'Already handled'));
+  sec.appendChild(el('p', 'small muted',
+    DONE.length + ' flag' + (DONE.length === 1 ? '' : 's') + ' in '
+    + keys.length + ' batch' + (keys.length === 1 ? '' : 'es')
+    + '. Kept, not deleted -- just out of the way of the list above.'));
+
+  const bar = el('div', 'dash-tools');
+  const toggle = el('button', 'btn small', showDone ? 'Hide them' : 'Show them');
+  toggle.onclick = () => { showDone = !showDone; render(); };
+  bar.appendChild(toggle);
+
+  if (lastBatch) {
+    const undo = el('button', 'btn small', 'Undo the batch I just marked');
+    undo.onclick = async () => {
+      undo.disabled = true;
+      try {
+        await unresolveFlags(lastBatch);
+        lastBatch = null;
+        await boot();
+      } catch (e) {
+        undo.disabled = false;
+        bar.appendChild(el('div', 'err', "Couldn't undo: " + e.message));
+      }
+    };
+    bar.appendChild(undo);
+  }
+  sec.appendChild(bar);
+
+  if (showDone) {
+    keys.forEach((k) => {
+      sec.appendChild(el('div', 'eyebrow',
+        'Handled ' + String(k).slice(0, 16).replace('T', ' ')));
+      group(batches.get(k)).forEach((g) => {
+        const d = describe(g.row);
+        const card = el('div', 'rank done-rank');
+        card.appendChild(el('div', 'n', String(g.devices.size)));
+        const body = el('div', 'body');
+        body.appendChild(el('div', 'ttl', d.head));
+        if (d.sub) body.appendChild(el('div', 'sub', d.sub));
+        body.appendChild(el('div', 'who', String.fromCharCode(128100) + ' ' + whoLine(g)));
+        card.appendChild(body);
+        sec.appendChild(card);
+      });
+    });
+  }
+  root.appendChild(sec);
 }
 
 async function boot() {
   try {
-    ROWS = (await allFlags()) || [];
+    const all = (await allFlags()) || [];
+    ROWS = all.filter((r) => !r.resolved_at);
+    DONE = all.filter((r) => r.resolved_at);
   } catch (e) {
     $('#view').innerHTML = '';
     $('#view').appendChild(el('div', 'err', "Couldn't load the list: " + e.message));

@@ -79,3 +79,23 @@ export function myFlags() {
 export function allFlags() {
   return call('/rest/v1/flags?select=*&order=created_at.desc', { headers: HEAD });
 }
+
+/* ---- handled / not handled -------------------------------------------------
+   A flag is never deleted once it has been dealt with in class; it just gets a
+   `resolved_at` stamp so the next class starts on a clean list. Every flag in
+   one batch shares a single stamp, which is what makes the undo exact. */
+
+/** Stamp every currently-open flag. Resolves to { stamp, n }. */
+export async function resolveFlags() {
+  const rows = await call('/rest/v1/rpc/resolve_flags', {
+    method: 'POST', headers: HEAD, body: '{}',
+  });
+  return (rows && rows[0]) || { stamp: null, n: 0 };
+}
+
+/** Undo one batch — only the rows carrying exactly that stamp. */
+export function unresolveFlags(stamp) {
+  return call('/rest/v1/rpc/unresolve_flags', {
+    method: 'POST', headers: HEAD, body: JSON.stringify({ p_stamp: stamp }),
+  });
+}

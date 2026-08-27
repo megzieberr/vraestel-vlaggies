@@ -53,12 +53,41 @@ architecture, the security shape, and the "never hand-edit questions.js" rule.
   `UPDATE`, `DELETE` all `42501 permission denied`.
 - All test rows deleted; table is empty and ready for the class.
 
+## Round 1 is in (2026-08-27)
+
+**11 flags from 2 learners** (Adriaan 9, Alani 2; nobody anonymous). She pasted the export
+and asked for the flagged paper questions gathered into one document.
+
+Delivered: `Gevlagde-Vrae-AFR.pdf` + `-ENG.pdf`, 6 pages each, in
+`Desktop\Graad 12 Curro\September Vraestel II\` (see `README-GEVLAGDE-VRAE.md` there).
+Three blocks — P2A Q8(e), P2C Q3(c)+(d), P2C Q4(c) — each naming its source paper and
+question, with an anonymised note on what was asked. **No memo** (the colour memos already
+have all four worked) and **no new practice questions yet**.
+
+Still to build from this round: fresh practice on the five flagged topics
+(eweredigheid, weerkaatsing & transformasie, gelykvormige driehoeke, korrelasiekoëffisiënt,
+spreidiagramme & regressielyn) plus the free-text note — **"denkbeeldige goed" turned out to
+mean circles named in the words but never drawn** ("prove BE is a tangent to circle ABE",
+and there is no circle ABE), her own explanation. That is the concyclic-points family.
+
+## Handled flags (2026-08-27)
+
+Because the class also runs Saturday and Sunday, the dashboard can now mark the current
+list handled so each class starts clean. `resolved_at` stamp, `resolve_flags()` /
+`unresolve_flags(stamp)`, an *Already handled* section and a one-press undo. Nothing is
+ever deleted and the learner page is untouched. Full shape in `README.md`.
+
+Verified end to end against the live table: marked 11 → dashboard showed 0 open and 10
+handled cards (two learners share the proportionality topic, so 11 rows group to 10) →
+undo → back to 11 open. Table checked before and after: **11 rows throughout, none lost.**
+
 ## Pending on Megan
 
-1. 📱 **Send the learners the link** — nothing else is needed; they just open it.
-2. 💻 When the flags are in, open the dashboard, press **Kopieer vir Claude**, paste it to
-   me. Then I gather the flagged questions into one document and write new practice on the
-   flagged topics.
+1. 💻 **Decide when to press "Mark these 11 as handled."** They are still OPEN — she is
+   teaching them tomorrow, so marking them now would hide the list she is about to use.
+   One tap on the dashboard after the class.
+2. 💻 After Saturday and Sunday, press **Kopieer vir Claude** again — the export now
+   carries only the new, unhandled flags.
 
 ## Housekeeping done
 

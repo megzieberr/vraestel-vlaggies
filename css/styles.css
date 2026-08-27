@@ -234,3 +234,7 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif; line-he
 .dash-sec h2{font-size:1.35rem; margin-bottom:4px;}
 textarea.export{width:100%; min-height:240px; font:500 .8rem ui-monospace,Menlo,Consolas,monospace;
   padding:12px; border:2px solid var(--ink); border-radius:12px; background:#fff; color:var(--ink); margin-top:10px;}
+
+/* A handled flag is kept and still readable, just visibly out of the running. */
+.rank.done-rank{opacity:.6; border-style:dashed;}
+.rank.done-rank .n{color:var(--ink-soft);}

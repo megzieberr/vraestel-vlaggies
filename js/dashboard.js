@@ -44,6 +44,13 @@ function describe(row) {
       sortKey: row.paper + ' ' + String(row.qnum).padStart(2, '0') + ' ' + (row.part_id || ''),
     };
   }
+  if (row.kind === 'note') {
+    return {
+      head: '✍️ In their own words',
+      sub: '', subAf: '', meta: 'Typed by a learner', accent: 's2',
+      sortKey: 'zz ' + (row.created_at || ''),
+    };
+  }
   const { topic, sub } = subOf(row);
   return {
     head: (topic ? topic.en : row.topic_id) + ' › ' + (sub ? sub.en : row.sub_id),
@@ -91,9 +98,17 @@ function whoLine(g) {
 }
 
 function pass(r) {
+  if (r.kind === 'note') return false;   // notes are one-offs; they get their own section
   if (filter === 'all') return true;
   if (filter === 'topics') return r.kind === 'topic';
   return r.kind === 'paper' && r.paper === filter;
+}
+
+/* Newest first. Each note is unique, so ranking them by count is meaningless. */
+function notesOf(rows) {
+  return rows.filter((r) => r.kind === 'note')
+    .slice()
+    .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
 }
 
 /* ---------------------------------------------------------- export */
@@ -140,10 +155,19 @@ function buildExport() {
   });
   out.push('');
 
+  const notes = notesOf(rows);
+  out.push('## IN THEIR OWN WORDS (typed by learners, not from any list)');
+  if (!notes.length) out.push('(nothing typed)');
+  notes.forEach((r, i) => {
+    out.push((i + 1) + '. ' + (r.learner || 'Anonymous') + ': "' + r.comment + '"');
+  });
+  out.push('');
+
   out.push('## WHAT I WANT NOW');
   out.push('1. Pull every flagged question above out of the Sept Paper II sources into ONE document, in Afrikaans (the class works in Afrikaans; one learner needs English).');
   out.push('2. Write brand-new practice questions on the topics above — not the same questions again.');
   out.push('3. We have 3 classes left, each 2 × 45 min. Order it so the most-flagged things come first.');
+  out.push('4. Read the "in their own words" notes too — they are the bits the topic list could not cover.');
   return out.join('\n');
 }
 
@@ -219,6 +243,25 @@ function render() {
   });
   if (!groups.length) sec.appendChild(el('div', 'empty', 'Nothing in this filter.'));
   root.appendChild(sec);
+
+  /* ---- what they typed themselves ---- */
+  const notes = notesOf(ROWS);
+  if (notes.length) {
+    const ns = el('div', 'dash-sec');
+    ns.appendChild(el('h2', null, '✍️ In their own words'));
+    ns.appendChild(el('p', 'small muted',
+      'Typed by a learner because the topic list did not cover it. Not counted or ranked.'));
+    notes.forEach((r) => {
+      const card = el('div', 'rank note-rank');
+      card.appendChild(el('div', 'n', '“”'));
+      const body = el('div', 'body');
+      body.appendChild(el('div', 'ttl', r.comment));
+      body.appendChild(el('div', 'who', '👤 ' + (r.learner || ANON)));
+      card.appendChild(body);
+      ns.appendChild(card);
+    });
+    root.appendChild(ns);
+  }
 
   /* ---- export ---- */
   const ex = el('div', 'dash-sec');

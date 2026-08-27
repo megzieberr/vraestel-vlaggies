@@ -164,6 +164,14 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif; line-he
 .dot-trig{background:var(--s2);} .dot-euc{background:var(--s1);}
 .dot-tgraph{background:var(--s5);} .dot-t3d{background:var(--ink);}
 
+/* ---------- "not on the list?" free-text box ---------- */
+.note-card{margin-top:16px; border-style:dashed;}
+.note-ta{width:100%; min-height:86px; resize:vertical; font:500 .98rem "Instrument Sans",sans-serif;
+  padding:12px 14px; margin:10px 0 4px; border:2px solid var(--ink); border-radius:12px;
+  background:#fff; color:var(--ink);}
+.note-ta:focus{outline:none; box-shadow:2px 2px 0 var(--accent);}
+.note-card .btn{margin-top:6px;}
+
 /* ---------- my list ---------- */
 .mine{display:flex; flex-direction:column; gap:10px;}
 .mine-item{display:flex; align-items:flex-start; gap:10px; border:2px solid var(--ink); border-radius:14px;
@@ -219,6 +227,9 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif; line-he
 .rank .cmts{margin-top:7px; display:flex; flex-direction:column; gap:5px;}
 .rank .cmt{font-size:.86rem; border-left:3px solid var(--s2); padding:2px 0 2px 9px;}
 .rank .cmt b{font-weight:700;}
+.rank.note-rank{border-style:dashed;}
+.rank.note-rank .n{font-size:1.9rem; color:var(--s2); line-height:1;}
+.rank.note-rank .ttl{font-weight:600; font-style:italic; white-space:pre-wrap;}
 .dash-sec{margin-top:26px;}
 .dash-sec h2{font-size:1.35rem; margin-bottom:4px;}
 textarea.export{width:100%; min-height:240px; font:500 .8rem ui-monospace,Menlo,Consolas,monospace;

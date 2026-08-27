@@ -26,6 +26,9 @@ architecture, the security shape, and the "never hand-edit questions.js" rule.
   still carries EN + AF for every question.
 - **Afrikaans says "naam", never "voornaam"** — her correction; "voornaam" is not
   a real Afrikaans word. English keeps "First name".
+- **Free-text notes added** (2026-08-27, her request): an optional box on the topic tab
+  for a question/problem that is not on the list. Shown on the dashboard under
+  "In their own words", verbatim, never counted or ranked.
 - **Dashboard unprotected.** She was told the consequence (a learner who finds the URL sees
   who flagged what) and chose it anyway. Do not "fix" this.
 - **Public repo / public paper text is fine** — she was asked specifically, because the app

@@ -388,7 +388,57 @@ function viewTopic(root) {
   const list = el('div');
   root.appendChild(list);
   renderTopicList(list);
+  root.appendChild(noteBox());
   if (state.q) setTimeout(() => { s.focus(); s.setSelectionRange(s.value.length, s.value.length); }, 0);
+}
+
+/* Free text, for whatever the list of sub-topics does not cover. */
+function noteBox() {
+  const card = el('div', 'card note-card');
+  card.appendChild(el('div', 'eyebrow', '✍️ ' + t().noteTitle));
+  card.appendChild(el('p', 'small muted', t().noteHint));
+  const ta = el('textarea', 'note-ta');
+  ta.placeholder = t().notePh;
+  ta.maxLength = 500;
+  card.appendChild(ta);
+  const err = el('div', 'err');
+  err.hidden = true;
+  card.appendChild(err);
+  const btn = el('button', 'btn primary', t().noteAdd);
+  btn.onclick = async () => {
+    const text = ta.value.trim();
+    if (!text) { err.textContent = t().noteEmpty; err.hidden = false; return; }
+    if (state.busy) return;
+    state.busy = true;
+    btn.disabled = true;
+    // a fresh id per note, so two different notes never overwrite each other
+    const noteId = 'n' + Math.random().toString(36).slice(2, 12);
+    const key = 'n:' + noteId;
+    try {
+      await addFlag({
+        learner: state.learner,
+        lang: state.lang,
+        kind: 'note',
+        part: noteId,
+        comment: text,
+      });
+      state.mine.set(key, {
+        target_key: key, kind: 'note', part_id: noteId,
+        paper: null, qnum: null, topic_id: null, sub_id: null, comment: text,
+      });
+      ta.value = '';
+      err.hidden = true;
+      toast(t().noteSaved);
+      render();
+    } catch (e) {
+      toast(t().offline);
+    } finally {
+      btn.disabled = false;
+      state.busy = false;
+    }
+  };
+  card.appendChild(btn);
+  return card;
 }
 
 function renderTopicList(list) {
@@ -449,6 +499,9 @@ function labelFor(row) {
     const head = (state.lang === 'af' ? 'Vraestel ' : 'Paper ') + row.paper + ' · '
       + t().qWord + ' ' + (pt ? pt.disp : row.qnum) + (pt ? '' : ' — ' + t().whole);
     return { head, sub: pt ? pt[state.lang] : '' };
+  }
+  if (row.kind === 'note') {
+    return { head: '✍️ ' + t().noteMine, sub: '' };
   }
   const topic = TOPICS.find((x) => x.id === row.topic_id);
   const sub = topic && topic.subs.find((x) => x.id === row.sub_id);

@@ -17,6 +17,11 @@ Learner page: `index.html` (Afrikaans + English) · Teacher page: `dashboard.htm
    - **🎯 A topic** — six topics, ~45 sub-topics, searchable in both languages. Classroom
      shorthand is indexed too, so `trig reductions` finds *Verkleiningsformules* and
      `OATS` finds *Spesiale hoeke*.
+   - **✍️ A free-text note** at the bottom of the topic tab, for whatever the list does not
+     cover ("Nie op die lys nie?"). Saved as `kind = 'note'` with the words in `comment`
+     and a client-generated id in `part_id`, so two different notes never collide but
+     re-saving the same one still edits it. Notes are **not ranked or counted** on the
+     dashboard — each is unique — they get their own section and their own export block.
 4. They can come back across the three weeks: **My lys** shows their flags and lets them
    remove any.
 5. Megan opens `dashboard.html`, sorted by how many learners flagged each thing, and presses

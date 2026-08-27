@@ -58,6 +58,9 @@ def strip_tex(t):
             return w
         return ' '
     s = re.sub(r'\\([A-Za-z]+)', sub_cmd, s)
+    # simple exponents read better as real superscripts: cm^2 -> cm², cos^2 x -> cos² x
+    s = re.sub(r'\^\s*([0-9])', lambda m: '²³'[int(m.group(1)) - 2]
+               if m.group(1) in '23' else '^' + m.group(1), s)
     # escaped literals: \% \$ \& \# \_ -> the character itself
     s = re.sub(r'\\([%$&#_{}])', r'\1', s)
     # spacing macros and leftovers

@@ -642,15 +642,15 @@ export const PAPERS = [
       "id": "5a",
       "disp": "5(a)",
       "marks": "4",
-      "en": "Prove the identity: ((sin x + cos x)^2 - 1)/(1 - cos^2 x) = (2cos x)/(sin x)",
-      "af": "Bewys die identiteit: ((sin x + cos x)^2 - 1)/(1 - cos^2 x) = (2cos x)/(sin x)"
+      "en": "Prove the identity: ((sin x + cos x)² - 1)/(1 - cos² x) = (2cos x)/(sin x)",
+      "af": "Bewys die identiteit: ((sin x + cos x)² - 1)/(1 - cos² x) = (2cos x)/(sin x)"
      },
      {
       "id": "5b",
       "disp": "5(b)",
       "marks": "4",
-      "en": "Hence determine the values of x in the interval -180° ≤ x ≤ 180° for which ((sin x + cos x)^2 - 1)/(1 - cos^2 x) = -2",
-      "af": "Bepaal vervolgens die waardes van x in die interval -180° ≤ x ≤ 180° waarvoor ((sin x + cos x)^2 - 1)/(1 - cos^2 x) = -2"
+      "en": "Hence determine the values of x in the interval -180° ≤ x ≤ 180° for which ((sin x + cos x)² - 1)/(1 - cos² x) = -2",
+      "af": "Bepaal vervolgens die waardes van x in die interval -180° ≤ x ≤ 180° waarvoor ((sin x + cos x)² - 1)/(1 - cos² x) = -2"
      },
      {
       "id": "5c",
@@ -1190,8 +1190,8 @@ export const PAPERS = [
       "id": "7a",
       "disp": "7(a)",
       "marks": "4",
-      "en": "Write the equation of the circle in the form (x - a)^2 + (y - b)^2 = r^2, and write down the coordinates of the centre M and the length of the radius in simplest surd form.",
-      "af": "Skryf die vergelyking van die sirkel in die vorm (x - a)^2 + (y - b)^2 = r^2, en skryf die koördinate van die middelpunt M en die lengte van die radius in die eenvoudigste wortelvorm neer."
+      "en": "Write the equation of the circle in the form (x - a)² + (y - b)² = r², and write down the coordinates of the centre M and the length of the radius in simplest surd form.",
+      "af": "Skryf die vergelyking van die sirkel in die vorm (x - a)² + (y - b)² = r², en skryf die koördinate van die middelpunt M en die lengte van die radius in die eenvoudigste wortelvorm neer."
      },
      {
       "id": "7b",
@@ -1264,8 +1264,8 @@ export const PAPERS = [
       "id": "9d",
       "disp": "9(d)",
       "marks": "3",
-      "en": "Hence prove that PT^2 = PA · PB.",
-      "af": "Bewys vervolgens dat PT^2 = PA · PB."
+      "en": "Hence prove that PT² = PA · PB.",
+      "af": "Bewys vervolgens dat PT² = PA · PB."
      },
      {
       "id": "9e",
@@ -1403,8 +1403,8 @@ export const PAPERS = [
       "id": "12b3",
       "disp": "12(b)(3)",
       "marks": "3",
-      "en": "The area of △ ABM is 8 cm^2. Determine the area of △ BMC.",
-      "af": "Die oppervlakte van △ ABM is 8 cm^2. Bepaal die oppervlakte van △ BMC."
+      "en": "The area of △ ABM is 8 cm². Determine the area of △ BMC.",
+      "af": "Die oppervlakte van △ ABM is 8 cm². Bepaal die oppervlakte van △ BMC."
      }
     ]
    },
@@ -1463,8 +1463,8 @@ export const PAPERS = [
       "id": "14d",
       "disp": "14(d)",
       "marks": "3",
-      "en": "Show that the area of △ ABC = p^2sin 2θ.",
-      "af": "Toon aan dat die oppervlakte van △ ABC = p^2sin 2θ."
+      "en": "Show that the area of △ ABC = p²sin 2θ.",
+      "af": "Toon aan dat die oppervlakte van △ ABC = p²sin 2θ."
      },
      {
       "id": "14e",
@@ -1881,8 +1881,8 @@ export const PAPERS = [
       "id": "15b",
       "disp": "15(b)",
       "marks": "1",
-      "en": "If △ PQZ ||| △ RQP, then PQ^2 = RQ · QZ",
-      "af": "Indien △ PQZ ||| △ RQP, dan is PQ^2 = RQ · QZ"
+      "en": "If △ PQZ ||| △ RQP, then PQ² = RQ · QZ",
+      "af": "Indien △ PQZ ||| △ RQP, dan is PQ² = RQ · QZ"
      },
      {
       "id": "15c",

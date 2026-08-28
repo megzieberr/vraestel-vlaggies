@@ -238,3 +238,9 @@ textarea.export{width:100%; min-height:240px; font:500 .8rem ui-monospace,Menlo,
 /* A handled flag is kept and still readable, just visibly out of the running. */
 .rank.done-rank{opacity:.6; border-style:dashed;}
 .rank.done-rank .n{color:var(--ink-soft);}
+/* One card at a time: the tick-off button sits at the foot of its own card. */
+.rank-act{margin-top:9px;}
+.rank-act .btn{min-height:40px; padding:9px 17px;}
+.rank-act .btn.done-btn{border-color:var(--s3); color:var(--s3);}
+.rank-act .btn.done-btn:hover,.rank-act .btn.done-btn:focus-visible{background:var(--s3); color:#fff;}
+.rank-act .err{margin-top:6px;}

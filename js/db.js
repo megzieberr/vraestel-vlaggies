@@ -82,20 +82,21 @@ export function allFlags() {
 
 /* ---- handled / not handled -------------------------------------------------
    A flag is never deleted once it has been dealt with in class; it just gets a
-   `resolved_at` stamp so the next class starts on a clean list. Every flag in
-   one batch shares a single stamp, which is what makes the undo exact. */
+   `resolved_at` stamp so it leaves the ranked list and the export. She ticks
+   them off ONE card at a time, because a class gets through some of the list
+   and not the rest. */
 
-/** Stamp every currently-open flag. Resolves to { stamp, n }. */
-export async function resolveFlags() {
-  const rows = await call('/rest/v1/rpc/resolve_flags', {
-    method: 'POST', headers: HEAD, body: '{}',
+/** Stamp the open flags on one card. Resolves to { stamp, n }. */
+export async function resolveFlag(key) {
+  const rows = await call('/rest/v1/rpc/resolve_flag', {
+    method: 'POST', headers: HEAD, body: JSON.stringify({ p_key: key }),
   });
   return (rows && rows[0]) || { stamp: null, n: 0 };
 }
 
-/** Undo one batch — only the rows carrying exactly that stamp. */
-export function unresolveFlags(stamp) {
-  return call('/rest/v1/rpc/unresolve_flags', {
-    method: 'POST', headers: HEAD, body: JSON.stringify({ p_stamp: stamp }),
+/** Put one card back on the list. Touches only that card. */
+export function unresolveFlag(key) {
+  return call('/rest/v1/rpc/unresolve_flag', {
+    method: 'POST', headers: HEAD, body: JSON.stringify({ p_key: key }),
   });
 }

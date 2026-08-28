@@ -95,32 +95,40 @@ python -m http.server 5193
 
 Registered as `vlaggies` in `~/.claude/.claude/launch.json`.
 
-## Handled flags (added 2026-08-27)
+## Handled flags — one question at a time (2026-08-27, reworked 2026-08-28)
 
-Her class runs again on the Saturday and the Sunday, so a second and third round of
-flags land on top of the first. The dashboard can mark the current list **handled** so
-each class starts clean, without losing what came before.
+Her class runs again on the Saturday and the Sunday, so a second and third round of flags
+land on top of the first. A class gets through **some** of the list and not the rest, so
+she ticks off **one card at a time** — the bulk "mark everything handled" button is gone
+(her call, 2026-08-28).
 
 - `public.flags.resolved_at timestamptz` — null means still open. **Nothing is ever
   deleted.** A handled flag keeps its row, its comment and its learner.
-- `resolve_flags()` stamps every open flag with **one shared `now()`** and returns
-  `(stamp, n)`. One stamp per batch is what makes the undo exact.
-- `unresolve_flags(p_stamp)` clears only the rows carrying that exact stamp, so undoing
-  a mistake cannot un-handle a batch that was correctly dealt with a week earlier.
+- `resolve_flag(p_key)` stamps only the open flags on that one card, all with one `now()`,
+  and returns `(stamp, n)`.
+- `unresolve_flag(p_key)` puts that one card back. Keyed, not stamped, so restoring a card
+  can never un-handle something else that was ticked off in the same minute.
 - Both are `SECURITY DEFINER` with `search_path` pinned, executable by `anon`, matching
-  `add_flag` / `remove_flag`. `anon` still has **SELECT only** on the table — the new
-  column is not directly writable.
+  `add_flag` / `remove_flag`. `anon` still has **SELECT only** on the table — the column is
+  not directly writable.
+- `resolve_flags()` / `unresolve_flags(stamp)`, the old batch pair, still exist in the
+  database but nothing calls them any more.
 
-On the dashboard: the ranked list, the counts and the **Copy for Claude** export all show
-**open flags only**. Handled ones move to an *Already handled* section, grouped by batch
-with the date, collapsed behind **Show them**. Right after marking, an **Undo the batch I
-just marked** button appears.
+⚖️ **A re-flag reopens the card** (her ruling, 2026-08-28): *"If a learner flags something
+again, don't hide it. It means we have to look at it again."* So `add_flag` clears
+`resolved_at` on its upsert, and the dashboard treats a card as open when **any one** flag
+on it is open — the whole card comes back, every learner and comment on it.
+
+On the dashboard: each ranked card (question, topic and free-text note alike) carries its
+own **✓ Handled** button. Handled cards move to *Already handled*, newest first, each with
+the time it was ticked off and its own **Put it back**. The counts and the **Copy for
+Claude** export always show open cards only.
 
 ⚠️ **The learner page is deliberately untouched.** "My lys" still shows a learner every
 flag they made, handled or not — otherwise their flag would appear to vanish and they
 would flag it again.
 
-⚠️ **The dashboard is unprotected and this button writes.** Before this change the
+⚠️ **The dashboard is unprotected and these buttons write.** Before this feature the
 dashboard was read-only, so the worst a learner who found the URL could do was read.
-Now they could mark the list handled. Nothing is destroyed and the undo exists, but it is
-a real change in what that page can do.
+Now they could mark things handled. Nothing is destroyed and every card can be put back,
+but it is a real change in what that page can do.

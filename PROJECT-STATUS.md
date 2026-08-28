@@ -103,24 +103,34 @@ spreidiagramme & regressielyn) plus the free-text note — **"denkbeeldige goed"
 mean circles named in the words but never drawn** ("prove BE is a tangent to circle ABE",
 and there is no circle ABE), her own explanation. That is the concyclic-points family.
 
-## Handled flags (2026-08-27)
+## Handled flags — per question (2026-08-27, reworked 2026-08-28)
 
-Because the class also runs Saturday and Sunday, the dashboard can now mark the current
-list handled so each class starts clean. `resolved_at` stamp, `resolve_flags()` /
-`unresolve_flags(stamp)`, an *Already handled* section and a one-press undo. Nothing is
-ever deleted and the learner page is untouched. Full shape in `README.md`.
+**Her call, 2026-08-28: the one big "mark them all handled" button is gone.** A class gets
+through some of the list and not the rest, so every card — question, topic and free-text
+note — now carries its own **✓ Handled** button, and every handled card its own **Put it
+back**. `resolve_flag(key)` / `unresolve_flag(key)`, both keyed, so nothing she ticks off
+can disturb anything else. Nothing is ever deleted and the learner page is untouched.
+Full shape in `README.md`.
 
-Verified end to end against the live table: marked 11 → dashboard showed 0 open and 10
-handled cards (two learners share the proportionality topic, so 11 rows group to 10) →
-undo → back to 11 open. Table checked before and after: **11 rows throughout, none lost.**
+**Her second ruling the same day:** *"If a learner flags something again, don't hide it. It
+means we have to look at it again."* `add_flag` now clears `resolved_at` on a re-flag, and
+a card counts as open when any one flag on it is open — the whole card comes back, with
+every learner and comment on it.
+
+Verified against the live table, 2026-08-28: ticked off the proportionality card (2 flags,
+both learners) → 11 open became 9, one handled card, the export dropped it → a simulated
+re-flag from a test device brought the whole card back with all three names and emptied
+*Already handled* → test flag deleted → **Put it back** returned it to 11 open.
+Table checked at the end: **11 rows, all open, no test rows, no timestamps touched.**
+Phone width 375 px: no sideways scroll, every button 40 px tall.
 
 ## Pending on Megan
 
 1. 🖨️ 5 min **[blocking]**: print `Gevlagde-Vrae-AFR.pdf` (6 pp) for the next class.
-2. 💻 1 min **[whenever]**: after that class, open the dashboard and press **Mark these 11
-   as handled**. Left open on purpose — it is the list she is about to teach.
+2. 💻 1 min **[whenever]**: after each class, open the dashboard and press **✓ Handled** on
+   the questions you actually got through. The rest stay on the list.
 3. 💻 2 min **[whenever]**: after Saturday and Sunday, press **Kopieer vir Claude** again
-   and paste it to me — the export now carries only the new flags.
+   and paste it to me — the export carries only what is still open.
 
 ## Next up
 

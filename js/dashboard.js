@@ -1,6 +1,6 @@
 import { PAPERS } from './questions.js';
 import { TOPICS, PAPER_TOPIC_LABEL } from './topics.js';
-import { allFlags, resolveFlags, unresolveFlags } from './db.js';
+import { allFlags, resolveFlag, unresolveFlag } from './db.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const el = (t, cls, txt) => {
@@ -10,11 +10,10 @@ const el = (t, cls, txt) => {
   return n;
 };
 
-let ROWS = [];        // OPEN flags -- what the dashboard ranks and exports
+let ROWS = [];        // OPEN cards -- what the dashboard ranks and exports
 let DONE = [];        // already handled in a class; kept forever, never deleted
 let filter = 'all';
 let showDone = false;
-let lastBatch = null; // stamp of a batch marked handled in THIS page view, for undo
 
 /* ---------------------------------------------------------- lookups */
 function partOf(row) {
@@ -112,6 +111,35 @@ function notesOf(rows) {
   return rows.filter((r) => r.kind === 'note')
     .slice()
     .sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+}
+
+/* ------------------------------------------------- handled / not handled
+
+   One card at a time, so she ticks off exactly what the class actually worked
+   through. Nothing is ever deleted: a handled flag keeps its row, its comment
+   and its learner, it just leaves the ranked list and the export. The learner
+   page is untouched -- "My lys" still shows them every flag they made.
+
+   `resolve_flag(key)` stamps only that card's open rows; `unresolve_flag(key)`
+   puts that one card back and cannot disturb anything else handled the same day. */
+function actionBar(key, done) {
+  const bar = el('div', 'rank-act');
+  const label = done ? 'Put it back' : '✓ Handled';
+  const b = el('button', 'btn small' + (done ? '' : ' done-btn'), label);
+  b.onclick = async () => {
+    b.disabled = true;                 // disable BEFORE the await, not after
+    b.textContent = done ? 'Putting it back...' : 'Marking...';
+    try {
+      if (done) await unresolveFlag(key); else await resolveFlag(key);
+      await boot();
+    } catch (e) {
+      b.disabled = false;
+      b.textContent = label;
+      bar.appendChild(el('div', 'err', "Couldn't save that: " + e.message));
+    }
+  };
+  bar.appendChild(b);
+  return bar;
 }
 
 /* ---------------------------------------------------------- export */
@@ -216,6 +244,10 @@ function render() {
       tools.appendChild(b);
     });
   root.appendChild(tools);
+  root.appendChild(el('p', 'small muted',
+    'Press ✓ Handled on a question once you have gone through it in class, and it leaves '
+    + 'this list. Nothing is deleted, what the learners see does not change, and you can '
+    + 'put any card back from Already handled.'));
 
   const shown = ROWS.filter(pass);
   const groups = group(shown);
@@ -244,6 +276,7 @@ function render() {
       });
       body.appendChild(cw);
     }
+    body.appendChild(actionBar(g.key, false));
     card.appendChild(body);
     sec.appendChild(card);
   });
@@ -263,13 +296,12 @@ function render() {
       const body = el('div', 'body');
       body.appendChild(el('div', 'ttl', r.comment));
       body.appendChild(el('div', 'who', '👤 ' + (r.learner || ANON)));
+      body.appendChild(actionBar(r.target_key, false));
       card.appendChild(body);
       ns.appendChild(card);
     });
     root.appendChild(ns);
   }
-
-  renderResolveBar(root);
 
   /* ---- export ---- */
   const ex = el('div', 'dash-sec');
@@ -299,103 +331,65 @@ function render() {
   renderDone(root);
 }
 
-/* ------------------------------------------------- handled / not handled */
+/* ------------------------------------------------- already handled */
 
-/* Marks every open flag. Nothing is deleted -- a handled flag keeps its row,
-   its comment and its place in "Already handled", and the learner's own list
-   is untouched, so their flag never appears to vanish. */
-function renderResolveBar(root) {
-  const sec = el('div', 'dash-sec');
-  sec.appendChild(el('h2', null, 'Done with these?'));
-  sec.appendChild(el('p', 'small muted',
-    'Marks all ' + ROWS.length + ' open flag' + (ROWS.length === 1 ? '' : 's')
-    + ' as handled, so the next class starts on a clean list. Nothing is deleted, '
-    + 'what the learners see does not change, and you can undo it right after.'));
-
-  const b = el('button', 'btn', 'Mark these ' + ROWS.length + ' as handled');
-  b.style.marginTop = '10px';
-  b.onclick = async () => {
-    if (!confirm('Mark all ' + ROWS.length + ' flags as handled? Nothing is deleted -- they move to "Already handled", and you can undo it.')) return;
-    b.disabled = true;               // disable BEFORE the await, not after
-    try {
-      const res = await resolveFlags();
-      lastBatch = res.stamp;
-      await boot();
-    } catch (e) {
-      b.disabled = false;
-      sec.appendChild(el('div', 'err', "Couldn't mark them: " + e.message));
-    }
-  };
-  sec.appendChild(b);
-  root.appendChild(sec);
-}
-
-/* Every flag in one batch carries the same stamp, which is what makes the undo
-   exact: it clears only that batch and leaves earlier ones handled. */
+/* Handled cards, newest first, each with its own way back. A card is listed
+   here only while EVERY flag on it is handled -- if a learner flags the same
+   thing again it goes straight back to the open list, because that means it
+   still needs looking at (her ruling, 2026-08-28). */
 function renderDone(root) {
   if (!DONE.length) return;
 
-  const batches = new Map();
-  DONE.forEach((r) => {
-    if (!batches.has(r.resolved_at)) batches.set(r.resolved_at, []);
-    batches.get(r.resolved_at).push(r);
-  });
-  const keys = [...batches.keys()].sort().reverse();
+  const groups = group(DONE).sort((a, b) =>
+    String(doneAt(b)).localeCompare(String(doneAt(a))));
 
   const sec = el('div', 'dash-sec');
   sec.appendChild(el('h2', null, 'Already handled'));
   sec.appendChild(el('p', 'small muted',
-    DONE.length + ' flag' + (DONE.length === 1 ? '' : 's') + ' in '
-    + keys.length + ' batch' + (keys.length === 1 ? '' : 'es')
+    groups.length + (groups.length === 1 ? ' card' : ' cards') + ', '
+    + DONE.length + ' flag' + (DONE.length === 1 ? '' : 's')
     + '. Kept, not deleted -- just out of the way of the list above.'));
 
   const bar = el('div', 'dash-tools');
   const toggle = el('button', 'btn small', showDone ? 'Hide them' : 'Show them');
   toggle.onclick = () => { showDone = !showDone; render(); };
   bar.appendChild(toggle);
-
-  if (lastBatch) {
-    const undo = el('button', 'btn small', 'Undo the batch I just marked');
-    undo.onclick = async () => {
-      undo.disabled = true;
-      try {
-        await unresolveFlags(lastBatch);
-        lastBatch = null;
-        await boot();
-      } catch (e) {
-        undo.disabled = false;
-        bar.appendChild(el('div', 'err', "Couldn't undo: " + e.message));
-      }
-    };
-    bar.appendChild(undo);
-  }
   sec.appendChild(bar);
 
   if (showDone) {
-    keys.forEach((k) => {
-      sec.appendChild(el('div', 'eyebrow',
-        'Handled ' + String(k).slice(0, 16).replace('T', ' ')));
-      group(batches.get(k)).forEach((g) => {
-        const d = describe(g.row);
-        const card = el('div', 'rank done-rank');
-        card.appendChild(el('div', 'n', String(g.devices.size)));
-        const body = el('div', 'body');
-        body.appendChild(el('div', 'ttl', d.head));
-        if (d.sub) body.appendChild(el('div', 'sub', d.sub));
-        body.appendChild(el('div', 'who', String.fromCharCode(128100) + ' ' + whoLine(g)));
-        card.appendChild(body);
-        sec.appendChild(card);
-      });
+    groups.forEach((g) => {
+      const d = describe(g.row);
+      const card = el('div', 'rank done-rank');
+      card.appendChild(el('div', 'n', String(g.devices.size)));
+      const body = el('div', 'body');
+      body.appendChild(el('div', 'ttl', d.head));
+      if (d.sub) body.appendChild(el('div', 'sub', d.sub));
+      body.appendChild(el('div', 'who', String.fromCharCode(128100) + ' ' + whoLine(g)));
+      body.appendChild(el('div', 'small muted',
+        'Handled ' + String(doneAt(g)).slice(0, 16).replace('T', ' ')));
+      body.appendChild(actionBar(g.key, true));
+      card.appendChild(body);
+      sec.appendChild(card);
     });
   }
   root.appendChild(sec);
 }
 
+/** When this card was last stamped -- the latest of its rows. */
+function doneAt(g) {
+  return DONE.filter((r) => r.target_key === g.key)
+    .reduce((m, r) => (String(r.resolved_at) > m ? String(r.resolved_at) : m), '');
+}
+
 async function boot() {
   try {
     const all = (await allFlags()) || [];
-    ROWS = all.filter((r) => !r.resolved_at);
-    DONE = all.filter((r) => r.resolved_at);
+    /* A CARD is open if any one flag on it is open, and then the whole card
+       comes back -- every learner and every comment on it, handled or not.
+       Her ruling: a learner flagging it again means we look at it again. */
+    const open = new Set(all.filter((r) => !r.resolved_at).map((r) => r.target_key));
+    ROWS = all.filter((r) => open.has(r.target_key));
+    DONE = all.filter((r) => !open.has(r.target_key));
   } catch (e) {
     $('#view').innerHTML = '';
     $('#view').appendChild(el('div', 'err', "Couldn't load the list: " + e.message));

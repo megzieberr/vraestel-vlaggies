@@ -1,4 +1,4 @@
-# Vraestel Vlaggies — project status
+# Vraestel Vlaggies — project status — updated 2026-08-28
 
 **Built and shipped 2026-08-27, one session.** Read `README.md` first — it holds the
 architecture, the security shape, and the "never hand-edit questions.js" rule.
@@ -9,9 +9,10 @@ Live and in real use. **Round 1 is in: 11 flags from 2 learners** (Adriaan 9, Al
 nobody anonymous — the rest of the class flagged nothing). The flagged paper questions are
 gathered into a printable pack for her next class.
 
-The dashboard can now mark a round **handled**, because the class also runs Saturday and
-Sunday and more flags will land on top. Handled flags are kept, never deleted, and the
-learner page is untouched.
+The dashboard ticks flags off **one question at a time** (reworked 2026-08-28 — the bulk
+button is gone), so a class that gets through half the list leaves the other half standing.
+Handled flags are kept, never deleted, the learner page is untouched, and a learner who
+flags something again puts the whole card back on the list.
 
 Current focus: **the topic practice from round 1 has not been built yet** — that is the
 next real piece of work.
@@ -68,6 +69,17 @@ next real piece of work.
 - **The dashboard now writes, where before it only read.** The page has no password, so a
   learner who found the URL could mark the list handled. Nothing is destroyed and there is
   a one-press undo. She was told plainly and did not ask for a code on it.
+
+**2026-08-28 (her two rulings on the handled button):**
+
+- **Tick off ONE question at a time.** Her words: *"change the resolve button to each
+  individual question so I can click resolved on the ones we actually resolved today."*
+  The bulk "mark all N as handled" button is **removed outright** — asked directly whether
+  to keep one for finishing the whole list, she said no.
+- **A re-flag must NOT stay hidden.** Her words: *"If a learner flags something again,
+  don't hide it. It means we have to look at it again."* So `add_flag` clears `resolved_at`
+  on its upsert, and a card counts as open the moment any one flag on it is open — the
+  whole card comes back, with every learner and comment on it.
 
 ## Verified before shipping (all on the live site unless noted)
 

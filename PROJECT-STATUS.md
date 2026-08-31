@@ -138,11 +138,9 @@ Phone width 375 px: no sideways scroll, every button 40 px tall.
 
 ## Pending on Megan
 
-1. 🖨️ 5 min **[blocking]**: print `Gevlagde-Vrae-AFR.pdf` (6 pp) for the next class.
-2. 💻 1 min **[whenever]**: after each class, open the dashboard and press **✓ Handled** on
-   the questions you actually got through. The rest stay on the list.
-3. 💻 2 min **[whenever]**: after Saturday and Sunday, press **Kopieer vir Claude** again
-   and paste it to me — the export carries only what is still open.
+- Nothing. (2026-08-31 sweep, her word: printing `Gevlagde-Vrae-AFR.pdf` for the next class is KILLED too. The 6-page PDF is still on disk if she ever wants it.)
+
+(2026-08-31 sweep, her word: both [whenever] items KILLED — the after-class ✓ Handled habit and the weekend **Kopieer vir Claude** export. If she wants a fresh export later she will say so; do not ask for one.)
 
 ## Next up
 
